@@ -28,7 +28,7 @@ const Header = () => {
       <div className="flexCenter innerWidth paddings h-container">
         {/* logo */}
         <Link to="/">
-          <img src="./logo.png" alt="logo" width={100} />
+          <img src="./logorem.png" alt="logo" width={100} />
         </Link>
 
         {/* menu */}
@@ -42,21 +42,21 @@ const Header = () => {
             className="flexCenter h-menu"
             style={getMenuStyles(menuOpened)}
           >
-            <NavLink to="/properties">Properties</NavLink>
+            <NavLink to="/properties">Projects</NavLink>
 
-            <a href="mailto:zainkeepscode@gmail.com">Contact</a>
+            <a href="mailto:sljukic.marija22@gmail.com">Contact</a>
 
             {/* add property */}
-            <div onClick={handleAddPropertyClick}>Add Property</div>
+            <div onClick={handleAddPropertyClick}>Add project</div>
             <AddPropertyModal opened={modalOpened} setOpened={setModalOpened} />
             {/* login button */}
-            {!isAuthenticated ? (
+            {/* {!isAuthenticated ? (
               <button className="button" onClick={loginWithRedirect}>
                 Login
               </button>
             ) : (
               <ProfileMenu user={user} logout={logout} />
-            )}
+            )} */}
           </div>
         </OutsideClickHandler>
 
