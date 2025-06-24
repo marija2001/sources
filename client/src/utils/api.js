@@ -2,9 +2,15 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
+//ovo ostavlljam za lokalno pokretanje 
+
+// export const api = axios.create({
+//   baseURL: "http://localhost:8000/api",
+// });
 export const api = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "https://api.sourcesllc.com/api",
 });
+
 
 // ✔ Dohvatanje svih projekata
 export const getAllProjects = async () => {
