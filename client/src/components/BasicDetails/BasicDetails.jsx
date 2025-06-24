@@ -3,7 +3,7 @@ import { TextInput, Box, Textarea, Group, Button, NumberInput } from "@mantine/c
 import { useForm } from "@mantine/form";
 import { validateString } from "../../utils/common";
 
-const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails }) => {
+const BasicDetails = ({ prevStep, nextStep, propertyDetails, setProjectDetails }) => {
   const form = useForm({
     initialValues: {
       title: propertyDetails.title,
@@ -24,7 +24,7 @@ const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails 
   const handleSubmit = ()=> {
     const {hasErrors} = form.validate()
     if(!hasErrors) {
-     setPropertyDetails((prev)=> ({...prev, title, description, price}))
+     setProjectDetails((prev)=> ({...prev, title, description, price}))
      nextStep()
     }
    }
@@ -37,7 +37,7 @@ const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails 
         <TextInput
           withAsterisk
           label="Title"
-          placeholder="Property Name"
+          placeholder="Project Name"
           {...form.getInputProps("title")}
         />
         <Textarea

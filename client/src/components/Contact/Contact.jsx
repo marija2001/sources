@@ -2,8 +2,28 @@ import React from "react";
 import "./Contact.css";
 import { MdCall } from "react-icons/md";
 import { BsFillChatDotsFill } from "react-icons/bs";
-import {HiChatBubbleBottomCenter} from 'react-icons/hi2'
+import { HiChatBubbleBottomCenter } from 'react-icons/hi2'
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 const Contact = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_uwopeyk', 'template_fithv1x', form.current, '7mZAWx2rAKb1BPKGd')
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Something went wrong, please try again.");
+        }
+      );
+  };
   return (
     <div id="contact-us" className="c-wrapper">
       <div className="paddings innerWidth flexCenter c-container">
@@ -12,79 +32,38 @@ const Contact = () => {
           <span className="orangeText">Our Contact Us</span>
           <span className="primaryText">Easy to contact us</span>
           <span className="secondaryText">
-            We always ready to help by providijng the best services for you. We
-            beleive a good blace to live can make your life better{" "}
+            Got a question? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+
+            {" "}
           </span>
+          <form ref={form} onSubmit={sendEmail} className="contactForm">
+            <label htmlFor="user_email" className="primaryText">Your Email</label>
+            <input
+              id="user_email"
+              type="email"
+              name="user_email"
+              placeholder="you@example.com"
+              required
+            />
 
-          <div className="flexColStart contactModes">
-            {/* first row */}
-            <div className="flexStart row">
-              <div className="flexColCenter mode">
-                <div className="flexStart">
-                  <div className="flexCenter icon">
-                    <MdCall size={25} />
-                  </div>
-                  <div className="flexColStart detail">
-                    <span className="primaryText">Call</span>
-                    <span className="secondaryText">021 123 145 14</span>
-                  </div>
-                </div>
-                <div className="flexCenter button">Call now</div>
-              </div>
+            <label htmlFor="message" className="primaryText">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Type your message here..."
+              required
+            />
 
-              <div className="flexColCenter mode">
-                <div className="flexStart">
-                  <div className="flexCenter icon">
-                    <BsFillChatDotsFill size={25} />
-                  </div>
-                  <div className="flexColStart detail">
-                    <span className="primaryText">Chat</span>
-                    <span className="secondaryText">021 123 145 14</span>
-                  </div>
-                </div>
-                <div className="flexCenter button">Chat now</div>
-              </div>
-            </div>
+            <button type="submit" className="button">Send</button>
+          </form>
 
-            {/* second row */}
-            <div className="flexStart row">
-              <div className="flexColCenter mode">
-                <div className="flexStart">
-                  <div className="flexCenter icon">
-                    <BsFillChatDotsFill size={25} />
-                  </div>
-                  <div className="flexColStart detail">
-                    <span className="primaryText">Video Call</span>
-                    <span className="secondaryText">021 123 145 14</span>
-                  </div>
-                </div>
-                <div className="flexCenter button">Video Call now</div>
-              </div>
 
-              <div className="flexColCenter mode">
-                <div className="flexStart">
-                  <div className="flexCenter icon">
-                    <HiChatBubbleBottomCenter size={25} />
-                  </div>
-                  <div className="flexColStart detail">
-                    <span className="primaryText">Message</span>
-                    <span className="secondaryText">021 123 145 14</span>
-                  </div>
-                </div>
-                <div className="flexCenter button">Message now</div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* right side */}
-        <div className="flexEnd c-right">
-          <div className="image-container">
-            <img src="./iott.jpg" alt="" />
-          </div>
         </div>
       </div>
     </div>
+
   );
 };
 

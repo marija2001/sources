@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 //import SearchBar from "../../components/SearchBar/SearchBar";
-import useProperties from "../../hooks/useProperties";
+import useProjects from "../../hooks/useProjects";
 import { PuffLoader } from "react-spinners";
-import PropertyCard from "../../components/PropertyCard/PropertyCard";
-import "../Properties/Properties.css";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import "../Project/Project.css";
 import UserDetailContext from "../../context/UserDetailContext";
 
 const Bookings = () => {
-  const { data, isError, isLoading } = useProperties();
+  const { data, isError, isLoading } = useProjects();
   const [filter, setFilter] = useState("");
   const {
     userDetails: { bookings },
@@ -41,7 +41,7 @@ const Bookings = () => {
 
         <div className="paddings flexCenter properties">
           {
-            // data.map((card, i)=> (<PropertyCard card={card} key={i}/>))
+            // data.map((card, i)=> (<ProjectCard card={card} key={i}/>))
 
             data
               .filter((property) =>
@@ -55,7 +55,7 @@ const Bookings = () => {
                   property.country.toLowerCase().includes(filter.toLowerCase())
               )
               .map((card, i) => (
-                <PropertyCard card={card} key={i} />
+                <ProjectCard card={card} key={i} />
               ))
           }
         </div>

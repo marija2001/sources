@@ -24,6 +24,7 @@
   font-weight: 600;
   font-size: 3.8rem;
   line-height: 4rem;
+  height: 8rem;
 }
 .orange-circle {
   height: 4rem;
@@ -50,10 +51,10 @@
 
 .image-container {
   width: 30rem;
-  height: 35rem;
+  height: 37rem;
   overflow: hidden;
   border-radius: 15rem 15rem 0 0;
-  border: 3px solid rgba(0, 0, 0, 0.12);
+  border: 3px solid rgba(128, 188, 213, 0.776);
 }
 .image-container>img{
     width: 100%;

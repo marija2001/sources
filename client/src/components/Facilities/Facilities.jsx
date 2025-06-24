@@ -3,14 +3,14 @@ import { Box, Button, Group, NumberInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import React, { useContext } from "react";
 import UserDetailContext from "../../context/UserDetailContext";
-import useProperties from "../../hooks/useProperties.jsx";
+import useProjects from "../../hooks/useProjects.jsx";
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
-import { createResidency } from "../../utils/api";
+import { createProject } from "../../utils/api";
 const Facilities = ({
   prevStep,
   propertyDetails,
-  setPropertyDetails,
+  setProjectDetails,
   setOpened,
   setActiveStep,
 }) => {
@@ -32,7 +32,7 @@ const Facilities = ({
   const handleSubmit = () => {
     const { hasErrors } = form.validate();
     if (!hasErrors) {
-      setPropertyDetails((prev) => ({
+      setProjectDetails((prev) => ({
         ...prev,
         facilities: { bedrooms, parkings, bathrooms },
       }));
@@ -45,16 +45,16 @@ const Facilities = ({
   const {
     userDetails: { token },
   } = useContext(UserDetailContext);
-  const { refetch: refetchProperties } = useProperties();
+  const { refetch: refetchProjects } = useProjects();
 
   const {mutate, isLoading} = useMutation({
-    mutationFn: ()=> createResidency({
+    mutationFn: ()=> createProject({
         ...propertyDetails, facilities: {bedrooms, parkings , bathrooms},
     }, token),
     onError: ({ response }) => toast.error(response.data.message, {position: "bottom-right"}),
     onSettled: ()=> {
       toast.success("Added Successfully", {position: "bottom-right"});
-      setPropertyDetails({
+      setProjectDetails({
         title: "",
         description: "",
         price: 0,
@@ -71,7 +71,7 @@ const Facilities = ({
       })
       setOpened(false)
       setActiveStep(0)
-      refetchProperties()
+      refetchProjects()
     }
 
   })
@@ -106,7 +106,7 @@ const Facilities = ({
             Back
           </Button>
           <Button type="submit" color="green" disabled={isLoading}>
-            {isLoading ? "Submitting" : "Add Property"}
+            {isLoading ? "Submitting" : "Add Project"}
           </Button>
         </Group>
       </form>

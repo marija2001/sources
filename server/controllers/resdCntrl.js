@@ -1,64 +1,82 @@
 import asyncHandler from "express-async-handler";
-
 import { prisma } from "../config/prismaConfig.js";
 
-export const createResidency = asyncHandler(async (req, res) => {
+// ✔ Kreiranje novog projekta
+export const createProject = asyncHandler(async (req, res) => {
   const {
-    title,
+    name,
     description,
-    price,
-    address,
-    country,
-    city,
-    facilities,
     image,
+    company,
+    website,
     userEmail,
   } = req.body.data;
 
-  console.log(req.body.data);
   try {
-    const residency = await prisma.residency.create({
+    const project = await prisma.project.create({
       data: {
-        title,
+        name,
         description,
-        price,
-        address,
-        country,
-        city,
-        facilities,
         image,
+        company,
+        website,
+        userEmail,
         owner: { connect: { email: userEmail } },
       },
     });
 
-    res.send({ message: "Residency created successfully", residency });
+    res.send({ message: "Project created successfully", project });
   } catch (err) {
     if (err.code === "P2002") {
-      throw new Error("A residency with address already there");
+      throw new Error("A project with the same name already exists for this user");
     }
     throw new Error(err.message);
   }
 });
 
-// function to get all the documents/residencies
-export const getAllResidencies = asyncHandler(async (req, res) => {
-  const residencies = await prisma.residency.findMany({
+
+export const getAllProjects = asyncHandler(async (req, res) => {
+  const projects = await prisma.project.findMany({
     orderBy: {
       createdAt: "desc",
     },
   });
-  res.send(residencies);
+  res.send(projects);
 });
 
-// function to get a specific document/residency
-export const getResidency = asyncHandler(async (req, res) => {
+// ✔ Dohvatanje projekta po ID-ju
+export const getProjectById = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
   try {
-    const residency = await prisma.residency.findUnique({
+    const project = await prisma.project.findUnique({
       where: { id },
     });
-    res.send(residency);
+
+    if (!project) {
+      res.status(404);
+      throw new Error("Project not found");
+    }
+
+    res.send(project);
+  } catch (err) {
+    throw new Error(err.message);
+  }
+});
+
+// ✔ Dohvatanje svih projekata jednog korisnika
+export const getProjectsByUser = asyncHandler(async (req, res) => {
+  const { userEmail } = req.params;
+
+  try {
+    const projects = await prisma.project.findMany({
+      where: { userEmail },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    res.send(projects);
   } catch (err) {
     throw new Error(err.message);
   }

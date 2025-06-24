@@ -4,13 +4,13 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 import "./Residencies.css";
 import { sliderSettings } from "../../utils/common";
-import PropertyCard from "../PropertyCard/PropertyCard";
-import useProperties from "../../hooks/useProperties";
+import ProjectCard from "../ProjectCard/ProjectCard";
+import useProjects from "../../hooks/useProjects";
 import {PuffLoader} from 'react-spinners'
 
 const Residencies = () => {
 
-  const {data, isError, isLoading} = useProperties()
+  const {data, isError, isLoading} = useProjects()
 
   if(isError){
     return(
@@ -46,7 +46,7 @@ const Residencies = () => {
           {/* slider */}
           {data.slice(0, 8).map((card, i) => (
             <SwiperSlide key={i}>
-              <PropertyCard card={card}/>
+              <ProjectCard card={card}/>
             </SwiperSlide>
           ))}
         </Swiper>

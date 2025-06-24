@@ -4,12 +4,12 @@ import Layout from "./components/Layout/Layout";
 
 import Website from "./pages/Website";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Properties from "./pages/Properties/Properties";
+import Projects from "./pages/Projects/Projects";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Property from "./pages/Property/Property";
+import Project from "./pages/Project/Project";
 import UserDetailContext from "./context/UserDetailContext";
 import Bookings from "./pages/Bookings/Bookings";
 import Favourites from "./pages/Favourites/Favourites";
@@ -31,9 +31,9 @@ function App() {
             <Routes>
               <Route element={<Layout />}>
                 <Route path="/" element={<Website />} />
-                <Route path="/properties">
-                  <Route index element={<Properties />} />
-                  <Route path=":propertyId" element={<Property />} />
+                <Route path="/projects">
+                  <Route index element={<Projects />} />
+                  <Route path=":propertyId" element={<Project />} />
                 </Route>
                 <Route path="/bookings" element={<Bookings />} />
                 <Route path="/favourites" element={<Favourites />} />

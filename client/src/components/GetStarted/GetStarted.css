@@ -20,3 +20,26 @@
     box-shadow: var(--shadow);
     border-radius: 10px;
 }
+
+.specialties {
+  display: flex;
+  gap: 3rem;
+  margin: 2rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.specialty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.specialty-text {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+

@@ -3,21 +3,21 @@ import { MdCancel, MdAnalytics } from "react-icons/md";
 const data = [
   {
     icon: <HiShieldCheck/>,
-    heading: "Best interest rates on the market",
+    heading: "Empowering Innovation Through Embedded Systems",
     detail:
-      "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
+      "We are a young and passionate company specializing in embedded systems and small-scale smart devices. Our mission is to design and develop reliable, efficient, and innovative technology solutions that fit in the palm of your hand — but make a big impact.From smart sensors to custom hardware solutions, we turn ideas into working prototypes and help our clients bring their products to life. With a hands-on approach, technical expertise, and dedication to quality, we are building the future — one device at a time.",
   },
   {
     icon: <MdCancel />,
-    heading: "Prevent unstable prices",
+    heading: "Smart Solutions, Compact Design",
     detail:
-      "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
+      "We focus on creating intelligent devices with minimal footprint, tailored for real-world applications. Whether it’s IoT, automation, or sensor-based systems — we bring function and form together.",
   },
   {
     icon: <MdAnalytics />,
-    heading: "Best price on the market",
+    heading: "Driven by Curiosity, Built with Precision",
     detail:
-      "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
+      "As engineers and innovators, we are driven by curiosity and powered by precision. Every project we take on is an opportunity to push boundaries and deliver solutions that are both practical and future-ready.",
   },
 ];
 export default data;

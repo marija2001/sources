@@ -30,23 +30,23 @@ const Hero = () => {
           <div className="flexCenter stats">
             <div className="flexColCenter stat">
               <span>
-                <CountUp start={8800} end={9000} duration={4} /> <span>+</span>
+                <CountUp start={4} end={8} duration={2} /> <span>+</span>
               </span>
-              <span className="secondaryText">Necega</span>
+              <span className="secondaryText">Years of experience</span>
             </div>
 
             <div className="flexColCenter stat">
               <span>
-                <CountUp start={1950} end={2000} duration={4} /> <span>+</span>
+                <CountUp start={10} end={20} duration={4} /> <span>+</span>
               </span>
-              <span className="secondaryText">Klijenata</span>
+              <span className="secondaryText">Clients</span>
             </div>
 
             <div className="flexColCenter stat">
               <span>
-                <CountUp end={28} /> <span>+</span>
+                <CountUp end={3} /> <span>+</span>
               </span>
-              <span className="secondaryText">Zaposlenih</span>
+              <span className="secondaryText">Engineers</span>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ const Hero = () => {
             }}
             className="image-container"
           >
-            <img src="./home.jpg" alt="source" />
+            <img src="./home3.jpg" alt="source" />
           </motion.div>
         </div>
       </div>

@@ -4,12 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
-
   "scripts": {
     "start": "nodemon index.js",
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@prisma/client": "^4.16.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

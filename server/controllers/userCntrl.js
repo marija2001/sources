@@ -30,7 +30,7 @@ export const bookVisit = asyncHandler(async (req, res) => {
     if (alreadyBooked.bookedVisits.some((visit) => visit.id === id)) {
       res
         .status(400)
-        .json({ message: "This residency is already booked by you" });
+        .json({ message: "This project is already booked by you" });
     } else {
       await prisma.user.update({
         where: { email: email },

@@ -4,7 +4,7 @@ import "./UploadImage.css";
 import { Button, Group } from "@mantine/core";
 const UploadImage = ({
   propertyDetails,
-  setPropertyDetails,
+  setProjectDetails,
   nextStep,
   prevStep,
 }) => {
@@ -12,7 +12,7 @@ const UploadImage = ({
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
   const handleNext = () => {
-    setPropertyDetails((prev) => ({ ...prev, image: imageURL }));
+    setProjectDetails((prev) => ({ ...prev, image: imageURL }));
     nextStep();
   };
   useEffect(() => {

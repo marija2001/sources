@@ -7,7 +7,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
-import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
+import AddProjectModal from "../AddProjectModal/AddProjectModal";
 import useAuthCheck from "../../hooks/useAuthCheck.jsx";
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
   const { validateLogin } = useAuthCheck();
 
 
-  const handleAddPropertyClick = () => {
+  const handleAddProjectClick = () => {
     if (validateLogin()) {
       setModalOpened(true);
     }
@@ -42,13 +42,13 @@ const Header = () => {
             className="flexCenter h-menu"
             style={getMenuStyles(menuOpened)}
           >
-            <NavLink to="/properties">Projects</NavLink>
+            <NavLink to="/projects">Projects</NavLink>
 
-            <a href="mailto:sljukic.marija22@gmail.com">Contact</a>
-
-            {/* add property */}
-            <div onClick={handleAddPropertyClick}>Add project</div>
-            <AddPropertyModal opened={modalOpened} setOpened={setModalOpened} />
+            <a href="/#contact-us" onClick={() => setMenuOpened(false)}>Contact</a>
+            <a href="/#about-us" onClick={() => setMenuOpened(false)}>About us </a>
+            {/* add project */}
+            {/* <div onClick={handleAddProjectClick}>Add project</div>
+            <AddProjectModal opened={modalOpened} setOpened={setModalOpened} /> */}
             {/* login button */}
             {/* {!isAuthenticated ? (
               <button className="button" onClick={loginWithRedirect}>

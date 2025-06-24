@@ -15,9 +15,13 @@ const Footer = () => {
 
         <div className="flexColStart f-right">
           <span className="primaryText">Information</span>
-          <span className="secondaryText">145 New York, FL 5467, USA</span>
+          <span className="secondaryText">Mila Perunicica I/28
+            <br/>
+            Pljevlja 84210
+            <br/>
+            ME</span>
           <div className="flexCenter f-menu">
-            <span>Property</span>
+            <span>Projects</span>
             <span>Services</span>
             <span>Product</span>
             <span>About Us</span>
