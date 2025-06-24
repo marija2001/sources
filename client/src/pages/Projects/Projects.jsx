@@ -39,10 +39,10 @@ const Projects = () => {
 
             data
               .filter(
-                (property) =>
-                  property?.name.toLowerCase().includes(filter.toLowerCase()) ||
-                  property?.city.toLowerCase().includes(filter.toLowerCase()) ||
-                  property?.country.toLowerCase().includes(filter.toLowerCase())
+                (project) =>
+                  project?.name.toLowerCase().includes(filter.toLowerCase()) ||
+                  project?.city.toLowerCase().includes(filter.toLowerCase()) ||
+                  project?.country.toLowerCase().includes(filter.toLowerCase())
               )
               .map((card, i) => (
                 <ProjectCard card={card} key={i} />

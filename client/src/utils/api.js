@@ -32,7 +32,7 @@ export const getAllProjects = async () => {
 // ✔ Dohvatanje projekta po ID-ju
 export const getProject = async (id) => {
   try {
-    const response = await api.get(`/project/${id}`, {
+    const response = await api.get(`/projects/${id}`, {
       timeout: 10 * 1000,
     });
 

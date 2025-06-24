@@ -33,7 +33,7 @@ function App() {
                 <Route path="/" element={<Website />} />
                 <Route path="/projects">
                   <Route index element={<Projects />} />
-                  <Route path=":propertyId" element={<Project />} />
+                  <Route path=":projectId" element={<Project />} />
                 </Route>
                 <Route path="/bookings" element={<Bookings />} />
                 <Route path="/favourites" element={<Favourites />} />
