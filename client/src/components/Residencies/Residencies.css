@@ -1,11 +1,20 @@
+.home-projects-band {
+  width: 100%;
+  background: var(--surface-band);
+  box-sizing: border-box;
+}
+
+.home-projects-band-body {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .r-container {
   gap: 2rem;
   position: relative;
   overflow: hidden;
-}
-
-.r-head{
-  margin-bottom: 2rem;
 }
 
 .swiper-horizontal{
@@ -14,21 +23,21 @@
 .r-buttons{
   position: absolute;
   gap: 1rem;
-  top: -4rem;
+  top: 0;
   right: 0;
 }
 .r-buttons button{
   font-size: 1.2rem;
   padding: .2rem .8rem;
-  color: blue;
-  border: none;
+  color: var(--swiper-btn-color);
+  border: 1px solid var(--swiper-btn-border);
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--swiper-btn-bg);
   cursor: pointer;
 }
 .r-buttons>:nth-child(1)
 {
-  background-color: #EEEEFF;
+  background-color: var(--swiper-btn-accent-bg);
 }
 .r-buttons>:nth-child(2)
 {
@@ -37,10 +46,9 @@
 
 
 @media (max-width: 640px) {
-  .r-head{
-  align-items: center;
-  }
   .r-buttons{
     position: initial;
+    margin-top: 1rem;
+    justify-content: center;
   }
 }

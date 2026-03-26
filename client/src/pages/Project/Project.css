@@ -85,10 +85,10 @@
   font-weight: 600;
 }
 
-.secondaryText {
+.project-content .secondaryText {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #333;
+  color: var(--project-body-text);
   text-align: justify;
 }
 

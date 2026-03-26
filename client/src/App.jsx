@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Project from "./pages/Project/Project";
 import UserDetailContext from "./context/UserDetailContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import Bookings from "./pages/Bookings/Bookings";
 import Favourites from "./pages/Favourites/Favourites";
 
@@ -24,6 +25,7 @@ function App() {
   });
 
   return (
+    <ThemeProvider>
     <UserDetailContext.Provider value={{ userDetails, setUserDetails }}>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
@@ -45,6 +47,7 @@ function App() {
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </UserDetailContext.Provider>
+    </ThemeProvider>
   );
 }
 

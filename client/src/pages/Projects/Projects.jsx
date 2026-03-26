@@ -31,23 +31,28 @@ const Projects = () => {
   return (
     <div className="wrapper">
       <div className="flexColCenter paddings innerWidth properties-container">
-       {/* <SearchBar filter={filter} setFilter={setFilter} /> */}
+        {/* <SearchBar filter={filter} setFilter={setFilter} /> */}
 
         <div className="paddings flexCenter properties">
-          {
-            // data.map((card, i)=> (<ProjectCard card={card} key={i}/>))
-
-            data
-              .filter(
-                (project) =>
-                  project?.name.toLowerCase().includes(filter.toLowerCase()) ||
-                  project?.city.toLowerCase().includes(filter.toLowerCase()) ||
-                  project?.country.toLowerCase().includes(filter.toLowerCase())
-              )
-              .map((card, i) => (
-                <ProjectCard card={card} key={i} />
-              ))
-          }
+          {(data ?? [])
+            .filter((project) => {
+              const q = filter.toLowerCase();
+              const name = (project?.name ?? "").toLowerCase();
+              const company = (project?.company ?? "").toLowerCase();
+              const desc = (project?.description ?? "").toLowerCase();
+              const city = (project?.city ?? "").toLowerCase();
+              const country = (project?.country ?? "").toLowerCase();
+              return (
+                name.includes(q) ||
+                company.includes(q) ||
+                desc.includes(q) ||
+                city.includes(q) ||
+                country.includes(q)
+              );
+            })
+            .map((card, i) => (
+              <ProjectCard card={card} key={i} />
+            ))}
         </div>
       </div>
     </div>

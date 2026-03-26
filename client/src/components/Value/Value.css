@@ -1,5 +1,18 @@
 .v-container .image-container {
-  border: 3px solid rgb(232 232 232 / 93%);
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0;
+  border: 3px solid var(--image-frame-border);
+  box-sizing: border-box;
+}
+
+.v-container .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .v-container > div {
   flex: 1;
@@ -12,19 +25,20 @@
   border: none;
 }
 .accordionItem {
-  background: white;
-  border: 0.8px solid rgba(128, 128, 128, 0.143);
+  background: var(--surface-elevated);
+  border: 0.8px solid var(--border-default);
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 20px;
 }
 
-.accordionItem.expanded {
+.accordionItem:has(.accordionButton[aria-expanded="true"]) {
   box-shadow: var(--shadow);
   border-radius: 6px;
 }
 .accordionButton {
-  background: white;
+  background: var(--surface-elevated);
+  color: var(--accordion-button-text);
   padding: 1rem;
   width: 100%;
   justify-content: space-between;
@@ -33,7 +47,7 @@
 
 .icon {
   padding: 10px;
-  background: #eeeeff;
+  background: var(--icon-strip-bg);
   border-radius: 5px;
 }
 .icon svg {
@@ -42,6 +56,11 @@
 
 .accordionButton .primaryText{
     font-size: 1.1rem;
+}
+
+.accordionItemPanel p,
+.accordionItemPanel .secondaryText {
+  color: var(--accordion-panel-text);
 }
 
 @media (max-width: 1024px) {

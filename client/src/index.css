@@ -1,12 +1,79 @@
 :root {
   --primary: #1f3e72;
-  --secondary: rgba(255, 255, 255, 0.78);
   --black: #131110;
   --blue-gradient: linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%);
   --orange-gradient: linear-gradient(270deg, #ffb978 0%, #ff922d 100%);
   --blue: #4066ff;
   --lightBlue: #eeeeff;
   --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.25);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #131110;
+  --hero-block-bg: #131110;
+  --body-text: #ffffff;
+  --primaryText-color: #d6e4ff;
+  --secondaryText-color: rgba(255, 255, 255, 0.78);
+  --header-bg: rgba(18, 16, 15, 0.82);
+  --header-nav: rgba(255, 255, 255, 0.78);
+  --menu-mobile-bg: #1c1c1f;
+  --menu-mobile-text: rgba(255, 255, 255, 0.92);
+  --menu-mobile-border: rgba(255, 255, 255, 0.1);
+  --menu-mobile-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --surface-elevated: #1c1c1f;
+  --surface-band: #1a1a1d;
+  --border-default: rgba(255, 255, 255, 0.12);
+  --image-frame-border: rgba(255, 255, 255, 0.18);
+  --accordion-button-text: #ffffff;
+  --accordion-panel-text: rgba(255, 255, 255, 0.82);
+  --icon-strip-bg: rgba(64, 102, 255, 0.2);
+  --swiper-btn-color: #a8c4ff;
+  --swiper-btn-bg: #2a2a30;
+  --swiper-btn-border: rgba(255, 255, 255, 0.15);
+  --swiper-btn-accent-bg: rgba(64, 102, 255, 0.22);
+  --footer-text: #ffffff;
+  --footer-border: rgba(255, 255, 255, 0.12);
+  --contact-card-bg: #1c1c1f;
+  --contact-input-bg: #141416;
+  --contact-input-text: #ffffff;
+  --contact-input-border: rgba(255, 255, 255, 0.18);
+  --contact-placeholder: rgba(255, 255, 255, 0.45);
+  --project-body-text: rgba(255, 255, 255, 0.82);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --page-bg: #ffffff;
+  --hero-block-bg: #131110;
+  --body-text: #131110;
+  --primaryText-color: #1f3e72;
+  --secondaryText-color: rgba(0, 0, 0, 0.68);
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --header-nav: #131110;
+  --menu-mobile-bg: #ffffff;
+  --menu-mobile-text: #131110;
+  --menu-mobile-border: rgba(0, 0, 0, 0.08);
+  --menu-mobile-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+  --surface-elevated: #ffffff;
+  --surface-band: #f4f5f7;
+  --border-default: rgba(0, 0, 0, 0.12);
+  --image-frame-border: rgba(0, 0, 0, 0.14);
+  --accordion-button-text: #131110;
+  --accordion-panel-text: rgba(0, 0, 0, 0.75);
+  --icon-strip-bg: rgba(64, 102, 255, 0.12);
+  --swiper-btn-color: #4066ff;
+  --swiper-btn-bg: #ffffff;
+  --swiper-btn-border: rgba(0, 0, 0, 0.15);
+  --swiper-btn-accent-bg: rgba(64, 102, 255, 0.15);
+  --footer-text: #131110;
+  --footer-border: rgba(0, 0, 0, 0.1);
+  --contact-card-bg: #ffffff;
+  --contact-input-bg: #ffffff;
+  --contact-input-text: #131110;
+  --contact-input-border: rgba(0, 0, 0, 0.2);
+  --contact-placeholder: rgba(0, 0, 0, 0.45);
+  --project-body-text: rgba(0, 0, 0, 0.75);
 }
 
 * {
@@ -16,8 +83,20 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
-.wrapper{
-  background-color: white;
+
+html,
+body,
+#root {
+  background-color: var(--page-bg);
+  color: var(--body-text);
+}
+
+.wrapper {
+  background-color: var(--page-bg);
+}
+
+.layout-outlet {
+  background: var(--page-bg);
 }
 a {
   color: inherit;
@@ -70,13 +149,13 @@ a {
 }
 
 .primaryText {
-  color: #1f3e72;
+  color: var(--primaryText-color);
   font-weight: bold;
   font-size: 2rem;
 }
 
 .secondaryText {
-  color: rgb(140 139 139);
+  color: var(--secondaryText-color);
   font-size: 0.9rem;
 }
 .orangeText {

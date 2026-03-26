@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 
 const useHeaderColor = () => {
-const [headerColor, setHeaderColor] = useState(false)
-  //to handle shadow of header
+  const [headerColor, setHeaderColor] = useState(
+    "rgba(19, 17, 16, 0.42)"
+  );
+
   useEffect(() => {
     function handleScroll() {
       if (window.scrollY > 8) {
-        setHeaderColor("#302e2e")
+        setHeaderColor("#302e2e");
       } else {
-        setHeaderColor("none");
+        setHeaderColor("rgba(19, 17, 16, 0.42)");
       }
     }
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return headerColor
+  return headerColor;
 };
 
 export default useHeaderColor;

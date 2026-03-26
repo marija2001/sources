@@ -1,6 +1,11 @@
+.f-wrapper {
+  background: var(--page-bg);
+  color: var(--footer-text);
+}
+
 .f-container{
     justify-content: space-between;
-    border-top: .5px solid rgba(0,0,0,0.148)
+    border-top: 1px solid var(--footer-border);
 }
 .f-left{
     gap: 1rem;
