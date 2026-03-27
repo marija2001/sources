@@ -7,44 +7,4 @@
   position: relative;
   overflow: hidden;
   background: var(--hero-block-bg);
-  --hero-video-bottom: clamp(3.1rem, 7.2vw, 4.35rem);
-}
-
-.hero-block .hero-video-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: var(--hero-video-bottom);
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.35s ease-in-out;
-}
-
-.hero-block .hero-video-layer.is-front {
-  z-index: 1;
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-block .hero-video-layer {
-    display: none;
-  }
-}
-
-.white-gradient {
-  position: absolute;
-  z-index: 2;
-  top: 12%;
-  left: 12%;
-  width: 20rem;
-  height: 20rem;
-  background: rgba(255, 255, 255, 0.522);
-  filter: blur(100px);
-  border-radius: 100px;
 }
