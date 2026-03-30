@@ -139,7 +139,7 @@ const ProductShowcase = () => {
       <div className="product-showcase__grid" aria-hidden />
 
       <div className="product-showcase__inner">
-        <div className="product-showcase__narrow">
+        <div className="product-showcase__chrome">
           <div className="product-showcase__topbar">
             <p className="product-showcase__eyebrow">What we build</p>
             <span className="product-showcase__counter" aria-hidden>
@@ -148,7 +148,9 @@ const ProductShowcase = () => {
               {String(SLIDES.length).padStart(2, "0")}
             </span>
           </div>
+        </div>
 
+        <div className="product-showcase__stage-shell">
           <div
             className="product-showcase__stage"
             aria-roledescription="carousel"
@@ -252,7 +254,9 @@ const ProductShowcase = () => {
               </div>
             </div>
           )}
+        </div>
 
+        <div className="product-showcase__chrome product-showcase__chrome--footer">
           <div className="product-showcase__footer-hint">
             <div className="product-showcase__dots" role="tablist" aria-label="Choose slide">
               {SLIDES.map((s, i) => (
@@ -263,7 +267,11 @@ const ProductShowcase = () => {
                   aria-selected={i === index}
                   aria-label={s.name}
                   className={`product-showcase__dot${i === index ? " is-active" : ""}`}
-                  onClick={() => setIndex(i)}
+                  onPointerDownCapture={(e) => e.stopPropagation()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIndex(i);
+                  }}
                 />
               ))}
             </div>

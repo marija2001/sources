@@ -2,41 +2,46 @@ import React from "react";
 import "./GetStarted.css";
 import { FaMicrochip, FaSatelliteDish, FaTools } from "react-icons/fa";
 
+const SPECIALTIES = [
+  { Icon: FaMicrochip, label: "Embedded systems" },
+  { Icon: FaSatelliteDish, label: "IoT and connectivity" },
+  { Icon: FaTools, label: "Hardware prototyping" },
+];
+
 const GetStarted = () => {
-    return (
-    <div id="get-started" className="g-wrapper">
+  return (
+    <section id="get-started" className="g-wrapper">
       <div className="paddings innerWidth g-container">
-        <div className="flexColCenter inner-container">
-          <span className="primaryText">We specialise in</span>
+        <header className="g-header">
+          <p className="g-eyebrow">Focus</p>
+          <h2 className="g-heading primaryText">We specialise in</h2>
+          <p className="g-lede secondaryText">
+            Firmware, sensors, and field-ready devices: from first schematic to
+            pilot deployments, with clear documentation and maintainable code.
+          </p>
+        </header>
 
-          {/* Ikonice sa nazivima */}
-          <div className="specialties">
-            <div className="specialty">
-              <FaMicrochip size={40} color="#2cb1bc" />
-              <span className="specialty-text">Embedded Systems</span>
-            </div>
-            <div className="specialty">
-              <FaSatelliteDish size={40} color="#2cb1bc" />
-              <span className="specialty-text">IoT Devices</span>
-            </div>
-            <div className="specialty">
-              <FaTools size={40} color="#2cb1bc" />
-              <span className="specialty-text">Hardware Prototyping</span>
-            </div>
-          </div>
+        <ul className="g-specialties" role="list">
+          {SPECIALTIES.map(({ Icon, label }) => (
+            <li key={label} className="g-specialty">
+              <div className="g-specialty-icon-wrap" aria-hidden>
+                <Icon className="g-specialty-icon" />
+              </div>
+              <span className="g-specialty-label">{label}</span>
+            </li>
+          ))}
+        </ul>
 
-         
-          <span className="secondaryText">
-           Solutions that write the future.
-            <br />
-            We’re excited by new challenges and diverse projects — always eager to learn, grow, and push boundaries.
-          </span>
-          <button className="button">
-            <a href="mailto:zainkeepscode@gmail.com">Get Started</a>
-          </button>
-        </div>
+        <p className="g-tagline secondaryText">
+          We take on demanding technical problems and ship outcomes you can
+          rely on, whether you need a proof of concept or a path to production.
+        </p>
+
+        <a className="button g-cta" href="mailto:zainkeepscode@gmail.com">
+          Get started
+        </a>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import Companies from "../components/Companies/Companies";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
 import GetStarted from "../components/GetStarted/GetStarted";
@@ -15,7 +14,6 @@ const Website = () => {
     <div className="hero-block">
       <Hero />
     </div>
-    <Companies />
     <Value/>
     <Residencies/>
     <Contact/>

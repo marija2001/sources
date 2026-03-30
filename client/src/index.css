@@ -45,7 +45,7 @@
 [data-theme="light"] {
   color-scheme: light;
   --page-bg: #ffffff;
-  --hero-block-bg: #131110;
+  --hero-block-bg: #ffffff;
   --body-text: #131110;
   --primaryText-color: #1f3e72;
   --secondaryText-color: rgba(0, 0, 0, 0.68);

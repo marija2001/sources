@@ -56,3 +56,23 @@
     font-size: 0.8rem;
   }
 }
+
+[data-theme="light"] .hero-wrapper {
+  color: var(--body-text);
+}
+
+[data-theme="light"] .hero-wrapper .secondaryText {
+  color: var(--secondaryText-color);
+}
+
+[data-theme="light"] .hero-stats-band {
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .stat > :nth-child(1) {
+  color: #131110;
+}
+
+[data-theme="light"] .stat > :nth-child(1) > :last-child {
+  color: #e8590c;
+}
