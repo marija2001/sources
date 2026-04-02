@@ -1,69 +1,60 @@
 import React from "react";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemButton,
-  AccordionItemPanel,
-} from "react-accessible-accordion";
-import "react-accessible-accordion/dist/fancy-example.css";
-import {
-  MdOutlineArrowDropDown,
-  MdOutlineArrowDropDownCircle,
-} from "react-icons/md";
-import data from "../../utils/accordion.jsx";
 import "./Value.css";
-// Demo styles, see 'Styles' section below for some notes on use.
+
+const visionImg = "/programming.jpg";
+const missionImg = "/programmingg.jpg";
 
 const Value = () => {
   return (
     <section id="value" className="v-wrapper">
-      <div className="paddings innerWidth flexCenter v-container">
-        {/* left side */}
-        <div className="v-left">
-          <div className="image-container">
-            <img src="./programming.jpg" alt="" />
+      <div className="paddings innerWidth v-about">
+        <div className="v-about__row">
+          <div className="v-about__media">
+            <div className="image-stack image-stack--shadow-left">
+              <span className="image-stack__shadow" aria-hidden />
+              <div className="image-container">
+                <img
+                  src={visionImg}
+                  alt="Engineering workspace and embedded development"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flexColStart v-about__copy">
+            <span id="about-us" className="orangeText">
+              ABOUT US
+            </span>
+            <h2 className="primaryText v-about__heading">Our vision</h2>
+            <p className="secondaryText v-about__text">
+              We want product teams to ship embedded systems with confidence—from
+              first schematic through manufacturing and years in the field. That
+              means predictable timelines, designs you can maintain, and a partner
+              who stays engaged after the board is spun.
+            </p>
           </div>
         </div>
 
-        {/* right */}
-        <div className="flexColStart v-right">
-          <span  id="about-us" className="orangeText">ABOUT US</span>
-
-          <span className="primaryText">Value We Give to You</span>
-
-          <span className="secondaryText">
-            We always ready to help by providijng the best services for you.
-            <br />
-            We beleive a good blace to live can make your life better
-          </span>
-
-          <Accordion
-            className="accordion"
-            allowMultipleExpanded={false}
-            preExpanded={[0]}
-          >
-            {data.map((item, i) => (
-                <AccordionItem className="accordionItem" uuid={i} key={i}>
-                  <AccordionItemHeading>
-                    <AccordionItemButton className="flexCenter accordionButton ">
-                      <div className="flexCenter icon">{item.icon}</div>
-                      <span
-                        className="primaryText"
-                      >
-                        {item.heading}
-                      </span>
-                      <div className="flexCenter icon">
-                        <MdOutlineArrowDropDown size={20} />
-                      </div>
-                    </AccordionItemButton>
-                  </AccordionItemHeading>
-                  <AccordionItemPanel>
-                    <p className="secondaryText">{item.detail}</p>
-                  </AccordionItemPanel>
-                </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="v-about__row">
+          <div className="flexColStart v-about__copy">
+            <h2 className="primaryText v-about__heading">Our mission</h2>
+            <p className="secondaryText v-about__text">
+              We combine hands-on hardware and firmware work with clear
+              communication: tight bring-up loops, honest risk calls, and
+              documentation that the next engineer can pick up. Your roadmap stays
+              yours; we help execute it without drama.
+            </p>
+          </div>
+          <div className="v-about__media">
+            <div className="image-stack image-stack--end">
+              <span className="image-stack__shadow" aria-hidden />
+              <div className="image-container">
+                <img
+                  src={missionImg}
+                  alt="Hardware and software integration"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

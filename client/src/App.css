@@ -6,5 +6,14 @@
 .hero-block {
   position: relative;
   overflow: hidden;
-  background: var(--hero-block-bg);
+  background: var(--hero-canvas-base);
+}
+
+.hero-block--bleed {
+  margin-top: calc(-1 * var(--header-visual-height));
+}
+
+.hero-block--bleed .hero-wrapper {
+  min-height: calc(100vh + var(--header-visual-height));
+  min-height: calc(100dvh + var(--header-visual-height));
 }

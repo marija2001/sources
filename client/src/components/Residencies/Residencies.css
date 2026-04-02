@@ -7,8 +7,8 @@
 .home-projects-band-body {
   width: 100%;
   box-sizing: border-box;
-  padding-top: clamp(2rem, 5vw, 3.5rem);
-  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding-top: var(--section-gap-md);
+  padding-bottom: var(--section-gap-md);
 }
 
 .home-projects-newsroom {

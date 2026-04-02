@@ -1,6 +1,81 @@
-.v-container .image-container {
+.v-about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap-lg);
+}
+
+.v-about__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.v-about__row > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.v-about__copy {
+  gap: 0.65rem;
+  align-self: center;
+}
+
+.v-about__heading {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.v-about__text {
+  margin: 0;
+  max-width: 36rem;
+  line-height: 1.65;
+  font-size: clamp(0.88rem, 1.5vw, 0.95rem);
+}
+
+.image-stack {
+  position: relative;
   width: 100%;
   max-width: 28rem;
+  align-self: flex-start;
+}
+
+.image-stack--end {
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.image-stack__shadow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  --v-about-shadow-shift: clamp(0.65rem, 2vw, 1.1rem);
+  transform: translate(var(--v-about-shadow-shift), var(--v-about-shadow-shift));
+  border-radius: 0;
+  pointer-events: none;
+}
+
+.image-stack--shadow-left .image-stack__shadow {
+  transform: translate(
+    calc(-1 * var(--v-about-shadow-shift)),
+    var(--v-about-shadow-shift)
+  );
+}
+
+[data-theme="light"] .image-stack__shadow {
+  background: #cdd7e8;
+}
+
+[data-theme="dark"] .image-stack__shadow {
+  background: #141a24;
+}
+
+.v-about .image-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 0;
@@ -8,69 +83,22 @@
   box-sizing: border-box;
 }
 
-.v-container .image-container img {
+.v-about .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.v-container > div {
-  flex: 1;
-}
-.v-right {
-  gap: 0.5rem;
-}
-.accordion {
-  margin-top: 2rem;
-  border: none;
-}
-.accordionItem {
-  background: var(--surface-elevated);
-  border: 0.8px solid var(--border-default);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.accordionItem:has(.accordionButton[aria-expanded="true"]) {
-  box-shadow: var(--shadow);
-  border-radius: 6px;
-}
-.accordionButton {
-  background: var(--surface-elevated);
-  color: var(--accordion-button-text);
-  padding: 1rem;
-  width: 100%;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.icon {
-  padding: 10px;
-  background: var(--icon-strip-bg);
-  border-radius: 5px;
-}
-.icon svg {
-  fill: var(--blue);
-}
-
-.accordionButton .primaryText{
-    font-size: 1.1rem;
-}
-
-.accordionItemPanel p,
-.accordionItemPanel .secondaryText {
-  color: var(--accordion-panel-text);
-}
 
 @media (max-width: 1024px) {
-    .v-container{
-        flex-direction: column;
-    }
-}
+  .v-about__row {
+    flex-direction: column;
+  }
 
-@media (max-width: 768px) {
-    .accordionButton .primaryText{
-        font-size: .8rem;
-    }
+  .image-stack,
+  .image-stack--end {
+    align-self: stretch;
+    margin-left: 0;
+    max-width: none;
+  }
 }
