@@ -23,7 +23,10 @@ const Residencies = () => {
 
   if (isError) {
     return (
-      <section className="home-projects-band" id="residencies">
+      <section
+        className="home-projects-band home-projects-band--hero-bg"
+        id="residencies"
+      >
         <div className="home-projects-band-body paddings innerWidth">
           <span>Error while fetching data</span>
         </div>
@@ -51,7 +54,10 @@ const Residencies = () => {
   }
 
   return (
-    <section className="home-projects-band" id="residencies">
+    <section
+      className="home-projects-band home-projects-band--hero-bg"
+      id="residencies"
+    >
       <div className="home-projects-band-body paddings innerWidth">
         <div className="home-projects-newsroom">
           <aside className="home-projects-newsroom__aside">

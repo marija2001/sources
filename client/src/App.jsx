@@ -14,6 +14,8 @@ import UserDetailContext from "./context/UserDetailContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import Bookings from "./pages/Bookings/Bookings";
 import Favourites from "./pages/Favourites/Favourites";
+import Services from "./pages/Services/Services";
+import Team from "./pages/Team/Team";
 
 function App() {
   const queryClient = new QueryClient();

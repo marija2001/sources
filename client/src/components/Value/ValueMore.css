@@ -1,0 +1,125 @@
+.v-more {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap-lg);
+  margin-top: var(--section-gap-lg);
+  padding-top: var(--section-gap-lg);
+  border-top: 1px solid var(--border-default);
+}
+
+.v-more__collab {
+  background: var(--surface-band);
+  margin-left: calc(-1 * clamp(1.5rem, 8vw, 5rem));
+  margin-right: calc(-1 * clamp(1.5rem, 8vw, 5rem));
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 8vw, 5rem);
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.v-more__collab-inner {
+  max-width: 38rem;
+}
+
+.v-more__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--secondaryText-color);
+}
+
+.v-more__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--primaryText-color);
+}
+
+.v-more__text {
+  margin: 0 0 1.35rem;
+  font-size: clamp(1.02rem, 1.75vw, 1.12rem);
+  line-height: 1.65;
+  color: var(--secondaryText-color);
+  max-width: 36rem;
+}
+
+.v-more__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.v-more__team {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.v-more__team > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.v-more__team-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-self: center;
+}
+
+.v-more__team-media {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  align-self: center;
+  margin-left: auto;
+}
+
+.v-more__team-media .image-stack__shadow {
+  --v-about-shadow-shift: clamp(0.65rem, 2vw, 1.1rem);
+}
+
+.v-more__team .image-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0;
+  border: 3px solid var(--image-frame-border);
+  box-sizing: border-box;
+}
+
+.v-more__team .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .v-more__team {
+    flex-direction: column;
+  }
+
+  .v-more__team-media {
+    margin-left: 0;
+    max-width: none;
+    align-self: stretch;
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .v-more__collab {
+    margin-left: calc(-1 * 1.5rem);
+    margin-right: calc(-1 * 1.5rem);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

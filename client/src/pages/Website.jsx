@@ -41,6 +41,22 @@ const Website = () => {
     });
   }, []);
 
+  const goToAboutFromHero = useCallback(() => {
+    dismissIntro(true);
+    const scroll = () => {
+      const el = document.getElementById("about-us");
+      if (!el) return;
+      const header = document.querySelector(".h-wrapper");
+      const headerH = header?.getBoundingClientRect().height ?? 0;
+      const top =
+        el.getBoundingClientRect().top + window.scrollY - headerH;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    };
+    scroll();
+    requestAnimationFrame(() => requestAnimationFrame(scroll));
+    window.setTimeout(scroll, 150);
+  }, [dismissIntro]);
+
   useEffect(() => {
     const syncAwayFlag = () => {
       if (getScrollY() > SCROLL_ARM_BELOW_PX) {
@@ -161,11 +177,15 @@ const Website = () => {
         aria-hidden={introDismissed}
         onPointerDownCapture={(e) => {
           if (introDismissed || e.button !== 0) return;
+          if (e.target.closest?.("a[href]")) return;
           dismissIntro();
         }}
       >
         <div className="hero-block hero-block--bleed">
-          <Hero pencilAnimEpoch={pencilAnimEpoch} />
+          <Hero
+            pencilAnimEpoch={pencilAnimEpoch}
+            onLearnMoreClick={goToAboutFromHero}
+          />
         </div>
       </div>
       <ProductShowcase />

@@ -5,6 +5,8 @@
   /* Hero: deep teget (petrol); solid fill uses layered gradients in Hero.css */
   /* Wordmark: public/logorem.png (#050f18); dark theme: logorem-dark.png */
   --hero-canvas-base: #050f18;
+  /* Mid teget from hero gradient (same as linear stop ~55%); corners/small areas */
+  --hero-teget-surface: #0c3048;
   --blue-gradient: linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%);
   --orange-gradient: linear-gradient(270deg, #ffb978 0%, #ff922d 100%);
   --blue: #4066ff;
@@ -23,6 +25,7 @@
   --page-bg: #131110;
   --hero-block-bg: #131110;
   --hero-canvas-base: #051018;
+  --hero-teget-surface: #0d3550;
   --body-text: #ffffff;
   --primaryText-color: #d6e4ff;
   --secondaryText-color: rgba(255, 255, 255, 0.78);
@@ -103,6 +106,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scroll-padding-top: var(--header-visual-height);
 }
 
 * {

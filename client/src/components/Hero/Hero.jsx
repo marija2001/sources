@@ -14,7 +14,7 @@ const HERO_PENCILS = [
   { key: "long", label: "Drivers & integration" },
 ];
 
-const Hero = ({ pencilAnimEpoch = 1 }) => {
+const Hero = ({ pencilAnimEpoch = 1, onLearnMoreClick }) => {
   const [typedLen, setTypedLen] = useState(0);
   const [deleting, setDeleting] = useState(false);
 
@@ -79,6 +79,11 @@ const Hero = ({ pencilAnimEpoch = 1 }) => {
               className="hero-learn-more hero-learn-more--on-dark"
               href="#about-us"
               aria-label="Learn more, about us"
+              onClick={(e) => {
+                if (!onLearnMoreClick) return;
+                e.preventDefault();
+                onLearnMoreClick();
+              }}
             >
               <span className="hero-learn-more__text">
                 {LEARN_MORE_TEXT.slice(0, typedLen)}
