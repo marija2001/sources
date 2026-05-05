@@ -1,34 +1,21 @@
 import "./Residencies.css";
-import HomeProjectCard from "../HomeProjectCard/HomeProjectCard";
-import useProjects from "../../hooks/useProjects";
-import { PuffLoader } from "react-spinners";
 import { Link } from "react-router-dom";
-
-function splitForMarquee(list) {
-  if (!list.length) return [[], []];
-  const mid = Math.ceil(list.length / 2);
-  const left = list.slice(0, mid);
-  let right = list.slice(mid);
-  if (right.length === 0) right = [...left];
-  return [left, right];
-}
+import { PuffLoader } from "react-spinners";
+import useProjects from "../../hooks/useProjects";
+import ProjectCarousel from "../ProjectCarousel/ProjectCarousel";
 
 const Residencies = () => {
   const { data, isError, isLoading } = useProjects();
-  const items = (data ?? []).slice(0, 12);
-  const [leftCol, rightCol] = splitForMarquee(items);
-
-  const n = Math.max(leftCol.length, rightCol.length, 1);
-  const marqueeDuration = Math.max(30, n * 6);
+  const projects = data ?? [];
 
   if (isError) {
     return (
       <section
-        className="home-projects-band home-projects-band--hero-bg"
+        className="home-projects-band home-projects-band--photo-bg"
         id="residencies"
       >
         <div className="home-projects-band-body paddings innerWidth">
-          <span>Error while fetching data</span>
+          <span className="home-projects-error">Error while fetching data</span>
         </div>
       </section>
     );
@@ -36,17 +23,20 @@ const Residencies = () => {
 
   if (isLoading) {
     return (
-      <section className="home-projects-band" id="residencies">
+      <section
+        className="home-projects-band home-projects-band--photo-bg"
+        id="residencies"
+      >
         <div
           className="home-projects-band-body flexCenter paddings innerWidth"
-          style={{ minHeight: "50vh" }}
+          style={{ minHeight: "40vh" }}
         >
           <PuffLoader
             height="80"
             width="80"
             radius={1}
             color="#4066ff"
-            aria-label="puff-loading"
+            aria-label="Loading projects"
           />
         </div>
       </section>
@@ -55,72 +45,20 @@ const Residencies = () => {
 
   return (
     <section
-      className="home-projects-band home-projects-band--hero-bg"
+      className="home-projects-band home-projects-band--photo-bg"
       id="residencies"
     >
       <div className="home-projects-band-body paddings innerWidth">
-        <div className="home-projects-newsroom">
-          <aside className="home-projects-newsroom__aside">
-            <p className="home-projects-newsroom__eyebrow">Projects</p>
-            <h2 className="home-projects-newsroom__heading">Sources newsroom</h2>
-            <p className="home-projects-newsroom__lede">
-              Catch up on the latest builds, integrations, and milestones from
-              our engineering team.
-            </p>
-            <Link className="home-projects-newsroom__link" to="/projects">
-              View all projects
-            </Link>
-          </aside>
+        <div className="home-projects-newsroom__intro">
+          <p className="home-projects-newsroom__eyebrow">Projects</p>
+          <h2 className="home-projects-newsroom__heading">Sources newsroom</h2>
+          <Link className="home-projects-newsroom__link" to="/projects">
+            View all projects
+          </Link>
+        </div>
 
-          <div className="home-projects-marquee">
-            <div
-              className="home-projects-marquee__col home-projects-marquee__col--up"
-              style={{ ["--marquee-duration"]: `${marqueeDuration}s` }}
-            >
-              <div className="home-projects-marquee__track home-projects-marquee__track--up">
-                {leftCol.map((card, i) => (
-                  <div
-                    key={`lu-${card?.id ?? i}-${i}`}
-                    className="home-projects-marquee__cell"
-                  >
-                    <HomeProjectCard card={card} />
-                  </div>
-                ))}
-                {leftCol.map((card, i) => (
-                  <div
-                    key={`lu2-${card?.id ?? i}-${i}`}
-                    className="home-projects-marquee__cell"
-                  >
-                    <HomeProjectCard card={card} />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div
-              className="home-projects-marquee__col home-projects-marquee__col--down"
-              style={{ ["--marquee-duration"]: `${marqueeDuration}s` }}
-            >
-              <div className="home-projects-marquee__track home-projects-marquee__track--down">
-                {rightCol.map((card, i) => (
-                  <div
-                    key={`rd-${card?.id ?? i}-${i}`}
-                    className="home-projects-marquee__cell"
-                  >
-                    <HomeProjectCard card={card} />
-                  </div>
-                ))}
-                {rightCol.map((card, i) => (
-                  <div
-                    key={`rd2-${card?.id ?? i}-${i}`}
-                    className="home-projects-marquee__cell"
-                  >
-                    <HomeProjectCard card={card} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div className="home-projects-showcase home-projects-showcase--centered">
+          <ProjectCarousel projects={projects} />
         </div>
       </div>
     </section>

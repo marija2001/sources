@@ -1,0 +1,180 @@
+.project-carousel {
+  --carousel-arrow-size: 2rem;
+  --carousel-arrow-color: rgba(31, 62, 114, 0.38);
+  --carousel-arrow-hover: rgba(31, 62, 114, 0.62);
+  --carousel-card-bg: #ffffff;
+  --carousel-card-border: rgba(20, 35, 55, 0.12);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  overflow-x: visible;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .project-carousel {
+  --carousel-arrow-color: rgba(255, 255, 255, 0.35);
+  --carousel-arrow-hover: rgba(255, 255, 255, 0.58);
+  --carousel-card-bg: #383e48;
+  --carousel-card-border: rgba(255, 255, 255, 0.09);
+}
+
+.project-carousel__viewport {
+  grid-column: 2;
+  min-width: 0;
+  padding: 6px 2px;
+  margin: -6px -2px;
+  overflow: hidden;
+}
+
+.project-carousel__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--carousel-arrow-size);
+  height: var(--carousel-arrow-size);
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--carousel-arrow-color);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.project-carousel__arrow--side {
+  align-self: center;
+}
+
+.project-carousel__arrow--prev {
+  grid-column: 1;
+}
+
+.project-carousel__arrow--next {
+  grid-column: 3;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.project-carousel__arrow:hover {
+  color: var(--carousel-arrow-hover);
+  background: rgba(31, 62, 114, 0.06);
+}
+
+[data-theme="dark"] .project-carousel__arrow:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.project-carousel__arrow svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.project-carousel__swiper {
+  overflow: visible;
+}
+
+.project-carousel__slide {
+  height: auto;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.project-carousel__slide .home-project-card {
+  width: 100%;
+}
+
+/* Sharp-edged panels; width reclaimed via tighter gutters (still 3-up @900+) */
+.project-carousel .home-project-card {
+  border-radius: 0;
+  background: var(--carousel-card-bg);
+  border: 1px solid var(--carousel-card-border);
+  box-shadow: 0 1px 0 rgba(20, 35, 55, 0.06), 0 12px 28px rgba(20, 35, 55, 0.07);
+  transition:
+    border-color 0.22s ease,
+    transform 0.32s ease,
+    box-shadow 0.32s ease;
+}
+
+.project-carousel .home-project-card:hover {
+  transform: scale(1.035);
+  border-color: rgba(64, 102, 255, 0.42);
+  box-shadow: 0 10px 28px rgba(20, 35, 55, 0.12);
+}
+
+[data-theme="dark"] .project-carousel .home-project-card {
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
+}
+
+[data-theme="dark"] .project-carousel .home-project-card:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.project-carousel .home-project-card:hover .home-project-card__media img {
+  transform: none;
+}
+
+.project-carousel .home-project-card__media {
+  aspect-ratio: 4 / 3;
+}
+
+.project-carousel .home-project-card__title {
+  font-size: clamp(1.22rem, 2.1vw, 1.58rem);
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+.project-carousel .home-project-card__excerpt {
+  font-size: 1.06rem;
+  line-height: 1.62;
+}
+
+.project-carousel .home-project-card__cta {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+.project-carousel .home-project-card__body {
+  padding: 2rem 1.85rem 2.75rem;
+  gap: 0.88rem;
+  min-height: 11.75rem;
+}
+
+.project-carousel .home-project-card__placeholder {
+  min-height: 15rem;
+}
+
+.project-carousel__empty {
+  margin: 0;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.98rem;
+  color: var(--secondaryText-color);
+  border: 1px dashed var(--border-default);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="dark"] .project-carousel__empty {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-carousel__arrow {
+    transition: none;
+  }
+
+  .project-carousel .home-project-card {
+    transition: border-color 0.22s ease;
+  }
+
+  .project-carousel .home-project-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
