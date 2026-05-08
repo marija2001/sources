@@ -1,18 +1,19 @@
 .App{
   position: relative;
   overflow-x: clip;
-  background-color: white;
+  background-color: var(--page-bg);
 }
-.App>:nth-child(1)
-{
-  background: var(--black);
+.hero-block {
   position: relative;
+  overflow: hidden;
+  background: var(--hero-canvas-base);
 }
-.white-gradient{
-  position: absolute;
-  width: 20rem;
-  height: 20rem;
-  background: rgba(255, 255, 255, 0.522);
-  filter: blur(100px);
-  border-radius: 100px;
+
+.hero-block--bleed {
+  margin-top: calc(-1 * var(--header-visual-height));
+}
+
+.hero-block--bleed .hero-wrapper {
+  min-height: calc(100vh + var(--header-visual-height));
+  min-height: calc(100dvh + var(--header-visual-height));
 }

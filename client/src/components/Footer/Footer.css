@@ -1,24 +1,79 @@
-.f-container{
-    justify-content: space-between;
-    border-top: .5px solid rgba(0,0,0,0.148)
+.f-wrapper {
+  background: var(--page-bg);
+  color: var(--footer-text);
 }
-.f-left{
-    gap: 1rem;
+
+.f-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  align-items: start;
+  column-gap: clamp(1rem, 4vw, 2.5rem);
+  row-gap: clamp(1rem, 3vw, 1.5rem);
+  border-top: 1px solid var(--footer-border);
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+  box-sizing: border-box;
 }
-.f-menu{
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    font-weight: 500;
+
+.f-logo {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: start;
 }
+
+.f-logo img {
+  display: block;
+}
+
+.f-copy {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  min-width: 0;
+  text-align: left;
+  gap: 0;
+}
+
+.f-container .f-right {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  align-items: flex-end;
+  text-align: right;
+  gap: 1rem;
+}
+
+.f-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  grid-column: 1 / -1;
+  grid-row: 3;
+  justify-self: stretch;
+  width: 100%;
+  gap: 1.5rem;
+  margin: 0;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
-    .f-container{
-        justify-content: center;
-    }
-    .f-container>div{
-        align-items: center!important;
-        text-align: center;
-    }
-    .f-right{
-        justify-content: center;
-    }
+  .f-container {
+    column-gap: clamp(0.65rem, 3vw, 1rem);
+  }
+
+  .f-copy {
+    align-self: start;
+    min-width: 0;
+  }
+
+  .f-container .f-right {
+    align-self: start;
+    min-width: 0;
+  }
+
+  .f-menu {
+    justify-content: flex-start;
+    gap: clamp(0.65rem, 2.5vw, 1rem);
+  }
 }

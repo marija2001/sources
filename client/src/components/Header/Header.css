@@ -1,44 +1,106 @@
 .h-wrapper {
-  z-index: 99;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-divider, var(--border-default));
+  backdrop-filter: blur(16px) saturate(1.1);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  transition: background 0.25s ease;
 }
 
 .h-container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  color: var(--secondary);
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  max-width: 80rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: var(--header-nav);
+}
+
+.h-end {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
 }
 
 .h-menu {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
   gap: 2rem;
+  font: inherit;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
+
+.h-menu a {
+  color: var(--header-nav);
+  text-decoration: none;
+}
+
 .h-menu > *:hover {
   cursor: pointer;
 }
+
+.h-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .menu-icon {
   display: none;
+  color: var(--header-nav);
 }
 
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
   }
+
   .h-menu {
-    color: var(--black);
+    color: var(--menu-mobile-text);
     position: absolute;
     gap: 2rem;
     font-weight: 500;
     flex-direction: column;
-    right: 4rem;
+    right: -100%;
     top: 3rem;
-    background: white;
+    background: var(--menu-mobile-bg);
+    border: 1px solid var(--menu-mobile-border);
     display: flex;
     border-radius: 10px;
-    transition: all 200ms ease;
+    transition:
+      right 0.22s ease,
+      opacity 0.22s ease,
+      visibility 0.22s ease;
     align-items: flex-start;
     padding: 3rem;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--menu-mobile-shadow);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .h-menu.h-menu--open {
+    right: 4rem;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .h-menu a {
+    color: var(--menu-mobile-text);
   }
 }

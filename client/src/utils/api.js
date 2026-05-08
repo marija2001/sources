@@ -2,14 +2,19 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
-//ovo ostavlljam za lokalno pokretanje 
+const baseURL =
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.DEV ? "/api" : "https://api.sourcesllc.com/api");
 
-// export const api = axios.create({
-//   baseURL: "http://localhost:8000/api",
-// });
-export const api = axios.create({
-  baseURL: "https://api.sourcesllc.com/api",
-});
+export const api = axios.create({ baseURL });
+
+export const getHomeServices = () =>
+  api
+    .get("/content/home-services", { timeout: 10 * 1000 })
+    .then((r) => r.data);
+
+export const getTeamMembers = () =>
+  api.get("/content/team", { timeout: 10 * 1000 }).then((r) => r.data);
 
 
 // ✔ Dohvatanje svih projekata

@@ -1,0 +1,94 @@
+.project-carousel {
+  --carousel-arrow-size: 2rem;
+  --carousel-arrow-color: rgba(31, 62, 114, 0.38);
+  --carousel-arrow-hover: rgba(31, 62, 114, 0.62);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem 0.65rem;
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  overflow-x: visible;
+  box-sizing: border-box;
+}
+
+.project-carousel__viewport {
+  grid-column: 2;
+  min-width: 0;
+  padding: 6px 2px;
+  margin: -6px -2px;
+  overflow: hidden;
+}
+
+.project-carousel__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--carousel-arrow-size);
+  height: var(--carousel-arrow-size);
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--carousel-arrow-color);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.project-carousel__arrow--side {
+  align-self: center;
+}
+
+.project-carousel__arrow--prev {
+  grid-column: 1;
+}
+
+.project-carousel__arrow--next {
+  grid-column: 3;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.project-carousel__arrow:hover {
+  color: var(--carousel-arrow-hover);
+  background: rgba(31, 62, 114, 0.06);
+}
+
+.project-carousel__arrow svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.project-carousel__swiper {
+  overflow: visible;
+}
+
+.project-carousel__slide {
+  height: auto;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.project-carousel__slide .home-project-card {
+  width: 100%;
+}
+
+.project-carousel__empty {
+  margin: 0;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.98rem;
+  color: var(--secondaryText-color);
+  border: 1px dashed var(--border-default);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-carousel__arrow {
+    transition: none;
+  }
+}

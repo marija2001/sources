@@ -1,57 +1,124 @@
-.v-container .image-container {
-  border: 3px solid rgb(232 232 232 / 93%);
+.v-wrapper {
+  scroll-margin-top: calc(
+    var(--header-visual-height) + clamp(1.5rem, 4vw, 2.5rem)
+  );
+  padding-top: clamp(2.75rem, 7vw, 4.5rem);
 }
-.v-container > div {
+
+.v-about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap-lg);
+}
+
+.v-about__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.v-about__row > * {
   flex: 1;
-}
-.v-right {
-  gap: 0.5rem;
-}
-.accordion {
-  margin-top: 2rem;
-  border: none;
-}
-.accordionItem {
-  background: white;
-  border: 0.8px solid rgba(128, 128, 128, 0.143);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 20px;
+  min-width: 0;
 }
 
-.accordionItem.expanded {
-  box-shadow: var(--shadow);
-  border-radius: 6px;
+.v-about__copy {
+  gap: 0.65rem;
+  align-self: center;
 }
-.accordionButton {
-  background: white;
-  padding: 1rem;
+
+.v-about .orangeText {
+  font-size: 1.85rem;
+}
+
+.v-about__heading {
+  margin: 0;
+  font-size: clamp(1.65rem, 3.4vw, 2.2rem);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.v-about__text {
+  margin: 0;
+  max-width: 36rem;
+  line-height: 1.65;
+  font-size: clamp(1.02rem, 1.75vw, 1.12rem);
+}
+
+.image-stack {
+  position: relative;
   width: 100%;
-  justify-content: space-between;
-  cursor: pointer;
+  max-width: 28rem;
+  align-self: flex-start;
 }
 
-.icon {
-  padding: 10px;
-  background: #eeeeff;
-  border-radius: 5px;
-}
-.icon svg {
-  fill: var(--blue);
+.image-stack--end {
+  align-self: flex-end;
+  margin-left: auto;
 }
 
-.accordionButton .primaryText{
-    font-size: 1.1rem;
+.image-stack__shadow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  --v-about-shadow-shift: clamp(0.65rem, 2vw, 1.1rem);
+  transform: translate(var(--v-about-shadow-shift), var(--v-about-shadow-shift));
+  border-radius: 0;
+  pointer-events: none;
+  background: var(--hero-teget-surface);
+}
+
+.image-stack--shadow-left .image-stack__shadow {
+  transform: translate(
+    calc(-1 * var(--v-about-shadow-shift)),
+    var(--v-about-shadow-shift)
+  );
+}
+
+.v-about .image-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0;
+  border: 3px solid var(--image-frame-border);
+  box-sizing: border-box;
+}
+
+.v-about .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .v-about .orangeText {
+    font-size: 1.48rem;
+  }
 }
 
 @media (max-width: 1024px) {
-    .v-container{
-        flex-direction: column;
-    }
+  .v-about__row {
+    flex-direction: column;
+  }
+
+  .image-stack,
+  .image-stack--end {
+    align-self: stretch;
+    margin-left: 0;
+    max-width: none;
+  }
 }
 
 @media (max-width: 768px) {
-    .accordionButton .primaryText{
-        font-size: .8rem;
-    }
+  .v-about .image-stack,
+  .v-about .image-stack--end {
+    max-width: min(20rem, 88vw);
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

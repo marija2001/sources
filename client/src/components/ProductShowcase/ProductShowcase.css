@@ -1,0 +1,194 @@
+.product-scope {
+  position: relative;
+  width: 100%;
+  background: var(--page-bg);
+  padding-top: var(--section-gap-md);
+  padding-bottom: var(--section-gap-md);
+  box-sizing: border-box;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.product-scope__top {
+  max-width: min(72rem, 100%);
+  margin-left: 0;
+  margin-right: auto;
+  box-sizing: border-box;
+  margin-top: var(--section-gap-sm);
+  margin-bottom: var(--section-gap-sm);
+  padding-left: clamp(1.25rem, 4vw, 2.5rem);
+  padding-right: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.product-scope__eyebrow {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondaryText-color);
+}
+
+.product-scope__track {
+  position: relative;
+  width: 100%;
+  padding: var(--section-gap-md) 0 var(--section-gap-sm);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.product-scope__pillars {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-left: clamp(1.25rem, 4vw, 2.5rem);
+  padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.75rem, 4.5vw, 3.5rem);
+  align-items: stretch;
+  border: none;
+}
+
+.product-pillar {
+  --pillar-accent: var(--blue);
+  position: relative;
+  z-index: 1;
+  padding: clamp(1.45rem, 2.85vw, 2rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 0;
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  background: var(--surface-elevated);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.product-pillar:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.product-pillar::after {
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--pillar-accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.product-pillar:hover::after {
+  opacity: 0.55;
+}
+
+.product-pillar__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--icon-strip-bg);
+  color: var(--pillar-accent);
+  flex-shrink: 0;
+}
+
+.product-pillar__icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.product-pillar__tag {
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pillar-accent);
+}
+
+.product-pillar__name {
+  margin: 0;
+  font-size: clamp(1.2rem, 1.55vw, 1.42rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primaryText-color);
+  letter-spacing: -0.01em;
+}
+
+.product-pillar__lead {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--primaryText-color);
+}
+
+.product-pillar__body {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.62;
+  flex: 1;
+}
+
+.product-pillar__meta {
+  margin: 0.35rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-default);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--secondaryText-color);
+}
+
+@media (max-width: 1100px) {
+  .product-scope__pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .product-scope__pillars {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .product-pillar {
+    border-left: 3px solid var(--pillar-accent);
+    padding-left: 1.1rem;
+  }
+
+  .product-pillar::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-pillar {
+    transition: none;
+  }
+
+  .product-pillar:hover {
+    transform: none;
+  }
+
+  .product-pillar::after {
+    transition: none;
+  }
+}
