@@ -53,24 +53,6 @@
   cursor: pointer;
 }
 
-.theme-toggle {
-  font: inherit;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 0.35rem 0.75rem;
-  margin: 0;
-  color: var(--header-nav);
-  background: transparent;
-  border: 1px solid var(--header-toggle-border, var(--border-default));
-  border-radius: 6px;
-  cursor: pointer;
-  transition: opacity 0.2s ease, border-color 0.2s ease;
-}
-
-.theme-toggle:hover {
-  opacity: 0.85;
-}
-
 .h-bar-actions {
   display: flex;
   align-items: center;
@@ -93,16 +75,29 @@
     gap: 2rem;
     font-weight: 500;
     flex-direction: column;
-    right: 4rem;
+    right: -100%;
     top: 3rem;
     background: var(--menu-mobile-bg);
     border: 1px solid var(--menu-mobile-border);
     display: flex;
     border-radius: 10px;
-    transition: all 200ms ease;
+    transition:
+      right 0.22s ease,
+      opacity 0.22s ease,
+      visibility 0.22s ease;
     align-items: flex-start;
     padding: 3rem;
     box-shadow: var(--menu-mobile-shadow);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .h-menu.h-menu--open {
+    right: 4rem;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .h-menu a {

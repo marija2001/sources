@@ -3,6 +3,7 @@ import { truncate } from "lodash";
 import "./HomeProjectCard.css";
 
 const HomeProjectCard = ({ card }) => {
+  const id = card?.id ?? card?._id;
   const title = card?.name ?? card?.title ?? "Project";
   const desc = card?.description ?? "";
   const imageSrc = (() => {
@@ -13,7 +14,10 @@ const HomeProjectCard = ({ card }) => {
   })();
 
   return (
-    <Link to={`/projects/${card.id}`} className="home-project-card">
+    <Link
+      to={`/projects/${id}`}
+      className="home-project-card home-project-card--newsroom"
+    >
       <div className="home-project-card__media">
         {imageSrc ? (
           <img src={imageSrc} alt="" />

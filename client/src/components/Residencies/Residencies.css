@@ -6,16 +6,6 @@
 
 .home-projects-band--photo-bg {
   margin-top: clamp(3.25rem, 6.5vw, 5.75rem);
-  background-color: #dee2e8;
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.42),
-      rgba(255, 255, 255, 0.42)
-    ),
-    url("/width_1600.webp");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .home-projects-band-body {

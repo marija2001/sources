@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { userRoute } from './routes/userRoute.js';
 import { projectRoute } from './routes/projectRoute.js';
+import { contentRoute } from './routes/contentRoute.js';
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use('/api/user', userRoute);
 app.use('/api/projects', projectRoute);
+app.use('/api/content', contentRoute);
 
 app.use((err, req, res, next) => {
   console.error(err);

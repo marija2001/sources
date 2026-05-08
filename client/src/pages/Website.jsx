@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import Contact from "../components/Contact/Contact";
-import GetStarted from "../components/GetStarted/GetStarted";
 import Hero from "../components/Hero/Hero";
+import HomeServices from "../components/HomeServices/HomeServices";
 import ProductShowcase from "../components/ProductShowcase/ProductShowcase";
 import Residencies from "../components/Residencies/Residencies";
 import Value from "../components/Value/Value";
 import "./Website.css";
+
+const SHOW_HOME_PRODUCT_SHOWCASE = false;
 
 /** Past this offset we allow “back to real top” to reopen the intro. */
 const SCROLL_ARM_BELOW_PX = 96;
@@ -188,11 +189,10 @@ const Website = () => {
           />
         </div>
       </div>
-      <ProductShowcase />
+      {SHOW_HOME_PRODUCT_SHOWCASE ? <ProductShowcase /> : null}
       <Value />
       <Residencies />
-      <Contact />
-      <GetStarted />
+      <HomeServices />
     </div>
   );
 };

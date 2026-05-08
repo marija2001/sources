@@ -30,3 +30,28 @@ model Project {
 
   @@unique(fields: [name, userEmail]) 
 }
+
+/// Prikaz na home-u (HomeServices sekcija). iconKey mapira se na react-icons u klijentu.
+model HomeService {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  iconKey   String
+  title     String
+  blurb     String
+  sortOrder Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// Stranica /team — bio je niz paragrafa (Json niz stringova u bazi).
+model TeamMember {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  role      String
+  photo     String
+  bio       Json
+  sortOrder Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

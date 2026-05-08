@@ -93,7 +93,6 @@ const Hero = ({ pencilAnimEpoch = 1, onLearnMoreClick }) => {
               </span>
             </a>
           </div>
-
         </div>
       </div>
 

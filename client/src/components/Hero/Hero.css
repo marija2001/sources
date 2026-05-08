@@ -95,7 +95,7 @@
     );
 }
 
-.hero-inner {
+.hero-inner.paddings {
   position: relative;
   z-index: 2;
   flex: 1;
@@ -107,8 +107,19 @@
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  padding-top: var(--header-visual-height);
+  padding-top: calc(
+    var(--header-visual-height) + env(safe-area-inset-top, 0px)
+  );
   padding-bottom: var(--section-gap-lg);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-inner.paddings {
+    padding-left: clamp(2rem, 8vw, 5rem);
+    padding-right: clamp(2rem, 8vw, 5rem);
+  }
 }
 
 .hero-layout {
@@ -127,6 +138,13 @@
   text-align: left;
 }
 
+.hero-stats {
+  width: 100%;
+  max-width: 36rem;
+  justify-content: flex-start;
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+}
+
 .hero-wrapper .hero-headline {
   margin: 0 0 0.65rem;
   font-size: clamp(2.05rem, 4.9vw, 2.9rem);
@@ -143,13 +161,6 @@
   line-height: 1.55;
   max-width: 34rem;
   color: rgba(248, 250, 252, 0.82);
-}
-
-.hero-stats {
-  width: 100%;
-  max-width: 36rem;
-  justify-content: flex-start;
-  gap: clamp(1.25rem, 4vw, 2.5rem);
 }
 
 .hero-wrapper .stat-value {
@@ -218,7 +229,7 @@
   }
 }
 
-.hero-pencils {
+.hero-wrapper > .hero-pencils {
   position: absolute;
   z-index: 1;
   right: 0;
@@ -307,9 +318,15 @@
 }
 
 @media (max-width: 900px) {
-  .hero-inner {
+  .hero-inner.paddings {
     flex: 0 1 auto;
     justify-content: flex-start;
+    padding-top: calc(
+      env(safe-area-inset-top, 0px) +
+        max(var(--header-visual-height), 9rem) +
+        clamp(2.5rem, 11vw, 4.5rem) + 0.85rem
+    );
+    padding-bottom: clamp(1.5rem, 5vw, 2.25rem);
   }
 
   .hero-layout {
@@ -320,9 +337,21 @@
 
   .hero-copy {
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .hero-pencils {
+  .hero-copy .hero-stats {
+    justify-content: center;
+  }
+
+  .hero-learn-more--on-dark {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-wrapper > .hero-pencils {
     position: relative;
     right: auto;
     top: auto;

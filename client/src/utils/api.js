@@ -8,6 +8,14 @@ const baseURL =
 
 export const api = axios.create({ baseURL });
 
+export const getHomeServices = () =>
+  api
+    .get("/content/home-services", { timeout: 10 * 1000 })
+    .then((r) => r.data);
+
+export const getTeamMembers = () =>
+  api.get("/content/team", { timeout: 10 * 1000 }).then((r) => r.data);
+
 
 // ✔ Dohvatanje svih projekata
 export const getAllProjects = async () => {

@@ -9,7 +9,7 @@ const teamImg = "/programming.jpg";
 
 const Value = () => {
   return (
-    <section id="value" className="v-wrapper">
+    <section id="about-us" className="v-wrapper">
       <div className="paddings innerWidth v-about">
         <div className="v-about__row">
           <div className="v-about__media">
@@ -24,7 +24,7 @@ const Value = () => {
             </div>
           </div>
           <div className="flexColStart v-about__copy">
-            <span id="about-us" className="orangeText">
+            <span className="orangeText">
               ABOUT US
             </span>
             <h2 className="primaryText v-about__heading">Our vision</h2>

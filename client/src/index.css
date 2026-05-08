@@ -1,9 +1,11 @@
 :root {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   --header-visual-height: clamp(4.25rem, 11vw, 5.85rem);
   --primary: #1f3e72;
   --black: #131110;
   /* Hero: deep teget (petrol); solid fill uses layered gradients in Hero.css */
-  /* Wordmark: public/logorem.png (#050f18); dark theme: logorem-dark.png */
+  /* Wordmark: public/logorem.png */
   --hero-canvas-base: #050f18;
   /* Mid teget from hero gradient (same as linear stop ~55%); corners/small areas */
   --hero-teget-surface: #0c3048;
@@ -18,52 +20,6 @@
   --section-gap-lg: clamp(3rem, 6.5vw, 4.5rem);
   --accent-warm: #e8590c;
   --accent-warm-muted: rgba(232, 89, 12, 0.55);
-}
-
-[data-theme="dark"] {
-  color-scheme: dark;
-  --page-bg: #131110;
-  --hero-block-bg: #131110;
-  --hero-canvas-base: #051018;
-  --hero-teget-surface: #0d3550;
-  --body-text: #ffffff;
-  --primaryText-color: #d6e4ff;
-  --secondaryText-color: rgba(255, 255, 255, 0.78);
-  --header-bg: rgba(255, 255, 255, 0.72);
-  --header-nav: #131110;
-  --header-divider: rgba(0, 0, 0, 0.07);
-  --header-toggle-border: rgba(0, 0, 0, 0.12);
-  --menu-mobile-bg: rgba(255, 255, 255, 0.94);
-  --menu-mobile-text: #131110;
-  --menu-mobile-border: rgba(0, 0, 0, 0.09);
-  --menu-mobile-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
-  --surface-elevated: #1c1c1f;
-  --surface-band: #1a1a1d;
-  --border-default: rgba(255, 255, 255, 0.12);
-  --image-frame-border: rgba(255, 255, 255, 0.18);
-  --accordion-button-text: #ffffff;
-  --accordion-panel-text: rgba(255, 255, 255, 0.82);
-  --icon-strip-bg: rgba(64, 102, 255, 0.2);
-  --swiper-btn-color: #a8c4ff;
-  --swiper-btn-bg: #2a2a30;
-  --swiper-btn-border: rgba(255, 255, 255, 0.15);
-  --swiper-btn-accent-bg: rgba(64, 102, 255, 0.22);
-  --footer-text: #ffffff;
-  --footer-border: rgba(255, 255, 255, 0.12);
-  --contact-card-bg: #1c1c1f;
-  --contact-input-bg: #141416;
-  --contact-input-text: #ffffff;
-  --contact-input-border: rgba(255, 255, 255, 0.18);
-  --contact-placeholder: rgba(255, 255, 255, 0.45);
-  --project-body-text: rgba(255, 255, 255, 0.82);
-  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 14px 36px -18px rgba(0, 0, 0, 0.65);
-  --card-shadow-hover: 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 20px 48px -16px rgba(0, 0, 0, 0.75);
-}
-
-[data-theme="light"] {
-  color-scheme: light;
   --page-bg: #ffffff;
   --hero-block-bg: #ffffff;
   --body-text: #131110;
@@ -72,7 +28,6 @@
   --header-bg: rgba(248, 250, 255, 0.68);
   --header-nav: #131110;
   --header-divider: rgba(31, 62, 114, 0.1);
-  --header-toggle-border: rgba(31, 62, 114, 0.14);
   --menu-mobile-bg: rgba(255, 255, 255, 0.92);
   --menu-mobile-text: #131110;
   --menu-mobile-border: rgba(31, 62, 114, 0.1);
@@ -103,18 +58,41 @@
 }
 
 html {
+  color-scheme: light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-padding-top: var(--header-visual-height);
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans);
   scroll-behavior: smooth;
+}
+
+body {
+  font-weight: 400;
+  letter-spacing: -0.018em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+b,
+strong {
+  font-weight: 600;
 }
 
 html,
@@ -187,7 +165,7 @@ a {
 
 .primaryText {
   color: var(--primaryText-color);
-  font-weight: bold;
+  font-weight: 600;
   font-size: 2rem;
 }
 
