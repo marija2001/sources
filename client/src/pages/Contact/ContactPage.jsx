@@ -63,6 +63,7 @@ function ContactPage() {
       <section className="contact-page__info paddings innerWidth" aria-label="Contact details">
         <div className="contact-page__info-grid">
           <article className="contact-card">
+            <span className="contact-card__sticker" aria-hidden />
             <div className="contact-card__icon" aria-hidden>
               <HiOutlinePhone />
             </div>
@@ -72,6 +73,7 @@ function ContactPage() {
             </a>
           </article>
           <article className="contact-card">
+            <span className="contact-card__sticker" aria-hidden />
             <div className="contact-card__icon" aria-hidden>
               <HiOutlineMail />
             </div>
@@ -85,6 +87,7 @@ function ContactPage() {
           </article>
           <div className="contact-page__location-slot">
             <article className="contact-card">
+              <span className="contact-card__sticker" aria-hidden />
               <div className="contact-card__icon" aria-hidden>
                 <HiOutlineMap />
               </div>

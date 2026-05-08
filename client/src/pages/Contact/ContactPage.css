@@ -76,6 +76,11 @@
   .contact-page__location-slot .contact-card__address {
     font-size: clamp(0.82rem, 2.6vw, 0.95rem);
   }
+
+  .contact-card__sticker {
+    width: min(7rem, 62%);
+    opacity: 0.92;
+  }
 }
 
 @media (min-width: 720px) {
@@ -93,6 +98,8 @@
 }
 
 .contact-card {
+  position: relative;
+  overflow: hidden;
   padding: clamp(1.5rem, 3vw, 2rem);
   background: var(--surface-elevated);
   border: 1px solid var(--border-default);
@@ -104,7 +111,34 @@
   gap: 0.85rem;
 }
 
+.contact-card__sticker {
+  position: absolute;
+  width: min(9.5rem, 56%);
+  aspect-ratio: 1;
+  border-radius: 42% 58% 52% 48%;
+  background: linear-gradient(
+    145deg,
+    rgba(64, 102, 255, 0.18) 0%,
+    rgba(45, 212, 191, 0.12) 55%,
+    rgba(31, 62, 114, 0.06) 100%
+  );
+  top: -16%;
+  right: -12%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-page__info-grid > .contact-card:nth-child(even) .contact-card__sticker {
+  left: -10%;
+  right: auto;
+  top: auto;
+  bottom: -18%;
+  border-radius: 58% 42% 48% 52%;
+}
+
 .contact-card__icon {
+  position: relative;
+  z-index: 1;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -122,6 +156,8 @@
 }
 
 .contact-card__label {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-size: 0.72rem;
   font-weight: 600;
@@ -131,6 +167,8 @@
 }
 
 .contact-card__value {
+  position: relative;
+  z-index: 1;
   font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   font-weight: 600;
   color: var(--primaryText-color);
@@ -143,6 +181,8 @@
 }
 
 .contact-card__address {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-size: 1.05rem;
   font-weight: 500;
