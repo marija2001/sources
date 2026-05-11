@@ -5,6 +5,7 @@ import cors from 'cors';
 import { userRoute } from './routes/userRoute.js';
 import { projectRoute } from './routes/projectRoute.js';
 import { contentRoute } from './routes/contentRoute.js';
+import { prisma } from './config/prismaConfig.js';
 
 const app = express();
 
@@ -17,6 +18,24 @@ app.use(cors());
 app.use('/api/user', userRoute);
 app.use('/api/projects', projectRoute);
 app.use('/api/content', contentRoute);
+
+app.get('/api/health', async (req, res) => {
+  try {
+    if (!process.env.DATABASE_URL) {
+      return res
+        .status(503)
+        .json({ ok: false, reason: 'DATABASE_URL is not set on the server' });
+    }
+    await prisma.$connect();
+    res.json({ ok: true, database: 'reachable' });
+  } catch (err) {
+    console.error(err);
+    res.status(503).json({
+      ok: false,
+      reason: err.message || 'Database connection failed',
+    });
+  }
+});
 
 app.use((err, req, res, next) => {
   console.error(err);
