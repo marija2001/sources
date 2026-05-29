@@ -355,14 +355,14 @@
     position: relative;
     right: auto;
     top: auto;
-    transform: none;
+    transform: translateY(-1rem);
     width: 100%;
     max-width: min(26rem, 92vw);
     align-items: flex-end;
     align-self: flex-end;
     flex: 0 0 auto;
-    gap: 2.35rem;
-    margin-top: clamp(2.85rem, 7.5vw, 4rem);
+    gap: 2.1rem;
+    margin-top: clamp(1.35rem, 4vw, 2.15rem);
     padding-right: 0;
   }
 
