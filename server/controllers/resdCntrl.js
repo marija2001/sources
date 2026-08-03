@@ -3,14 +3,7 @@ import { prisma } from "../config/prismaConfig.js";
 
 // ✔ Kreiranje novog projekta
 export const createProject = asyncHandler(async (req, res) => {
-  const {
-    name,
-    description,
-    image,
-    company,
-    website,
-    userEmail,
-  } = req.body.data;
+  const { name, description, image, company, website } = req.body.data;
 
   try {
     const project = await prisma.project.create({
@@ -18,17 +11,15 @@ export const createProject = asyncHandler(async (req, res) => {
         name,
         description,
         image,
-        company,
-        website,
-        userEmail,
-        owner: { connect: { email: userEmail } },
+        ...(company?.trim() ? { company: company.trim() } : {}),
+        ...(website?.trim() ? { website: website.trim() } : {}),
       },
     });
 
     res.send({ message: "Project created successfully", project });
   } catch (err) {
     if (err.code === "P2002") {
-      throw new Error("A project with the same name already exists for this user");
+      throw new Error("A project with the same name already exists");
     }
     throw new Error(err.message);
   }
@@ -59,24 +50,6 @@ export const getProjectById = asyncHandler(async (req, res) => {
     }
 
     res.send(project);
-  } catch (err) {
-    throw new Error(err.message);
-  }
-});
-
-// ✔ Dohvatanje svih projekata jednog korisnika
-export const getProjectsByUser = asyncHandler(async (req, res) => {
-  const { userEmail } = req.params;
-
-  try {
-    const projects = await prisma.project.findMany({
-      where: { userEmail },
-      orderBy: {
-        createdAt: "desc",
-      },
-    });
-
-    res.send(projects);
   } catch (err) {
     throw new Error(err.message);
   }
