@@ -93,6 +93,28 @@
   white-space: pre-line;
 }
 
+.project-page__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.project-page__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.project-page__list li {
+  line-height: 1.6;
+}
+
+.project-page__list li::marker {
+  color: var(--blue);
+}
+
 .project-page__prose strong {
   font-weight: 700;
   color: var(--primaryText-color);

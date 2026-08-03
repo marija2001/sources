@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { PuffLoader } from "react-spinners";
 import useProject from "../../hooks/useProject";
+import DescriptionBlock from "./DescriptionBlock";
+import { splitDescriptionBlocks } from "../../utils/projectDescription";
 import "./Project.css";
 
 function resolveImageSrc(img) {
@@ -11,60 +13,13 @@ function resolveImageSrc(img) {
   return trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
 }
 
-function normalizeDescription(raw) {
-  if (raw == null) return "";
-  if (typeof raw === "string") return raw;
-  if (Array.isArray(raw)) return raw.filter(Boolean).join("\n\n");
-  return String(raw);
-}
-
-function splitParagraphs(text) {
-  const normalized = normalizeDescription(text);
-  if (!normalized.trim()) return [];
-  return normalized
-    .trim()
-    .split(/\n\s*\n/)
-    .map((p) => p.trim())
-    .filter(Boolean);
-}
-
-function renderInline(text) {
-  const parts = text.split(/(\*\*[^*\n]+\*\*)/g);
-  return parts.map((part, i) => {
-    if (/^\*\*[^*\n]+\*\*$/.test(part)) {
-      return <strong key={i}>{part.slice(2, -2)}</strong>;
-    }
-    return part;
-  });
-}
-
-function DescriptionBlock({ block }) {
-  if (block.startsWith("## ")) {
-    return (
-      <h2 className="project-page__subheading primaryText">
-        {renderInline(block.slice(3))}
-      </h2>
-    );
-  }
-  if (block.startsWith("# ")) {
-    return (
-      <h3 className="project-page__minor-heading primaryText">
-        {renderInline(block.slice(2))}
-      </h3>
-    );
-  }
-  return (
-    <p className="project-page__prose secondaryText">{renderInline(block)}</p>
-  );
-}
-
 const Project = () => {
   const { projectId } = useParams();
   const { data, isLoading, isError, error } = useProject(projectId);
 
   const is404 = error?.response?.status === 404;
   const imageSrc = resolveImageSrc(data?.image);
-  const paragraphs = splitParagraphs(data?.description);
+  const blocks = splitDescriptionBlocks(data?.description);
 
   if (isLoading) {
     return (
@@ -139,8 +94,8 @@ const Project = () => {
           ) : null}
 
           <div className="project-page__body">
-            {paragraphs.length > 0 ? (
-              paragraphs.map((block, i) => (
+            {blocks.length > 0 ? (
+              blocks.map((block, i) => (
                 <DescriptionBlock key={i} block={block} />
               ))
             ) : (
