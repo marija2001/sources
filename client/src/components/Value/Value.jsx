@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import "./Value.css";
 import "./ValueMore.css";
 
-const visionImg = "/programming.jpg";
-const missionImg = "/programmingg.jpg";
-const teamImg = "/programming.jpg";
+const visionImg = "/nova1.png";
+const missionImg = "/nova.png";
+const teamImg = "/programmingg.jpg";
 
 const Value = () => {
   return (
