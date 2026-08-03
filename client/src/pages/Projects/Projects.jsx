@@ -14,8 +14,7 @@ function ProjectsHero() {
         <p className="page-hero__eyebrow">Work</p>
         <h1 className="page-hero__title">Projects</h1>
         <p className="page-hero__lede">
-          Case studies and products we&apos;ve shipped — use search to narrow the
-          list.
+        Explore our projects and products
         </p>
       </div>
     </section>

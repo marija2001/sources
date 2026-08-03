@@ -10,18 +10,25 @@ const Footer = () => {
 
         <div className="flexColStart f-copy">
           <span className="secondaryText">
-            Our vision is to make all people <br />
-            the best place to live for them.
+          Our vision is to use technology to improve <br/>
+          the way people live, work, and connect.
           </span>
         </div>
 
         <div className="flexColStart f-right">
           <span className="primaryText">Information</span>
-          <span className="secondaryText">Mila Perunicica I/28
-            <br/>
-            Pljevlja 84210
-            <br/>
-            ME</span>
+          <span className="secondaryText f-address">
+            <strong>Pljevlja</strong>
+            <br />
+            Mila Perunicica I/28
+            <br />
+            84210, ME
+          </span>
+          <span className="secondaryText f-address">
+            <strong>Podgorica</strong>
+            <br />
+            81000, ME
+          </span>
         </div>
 
         <nav className="f-menu" aria-label="Footer links">

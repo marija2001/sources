@@ -6,10 +6,19 @@ import "../../styles/pageHero.css";
 import "./ContactPage.css";
 
 const SITE_CONTACT = {
-  phoneDisplay: "+382 XX XXX XXX",
-  phoneTel: "+382000000000",
+  phoneDisplay: "+382 68 379 869",
+  phoneTel: "+38268379869",
   email: "sourcesystems@sourcesllc.com",
-  addressLines: ["Mila Perunicica I/28", "Pljevlja 84210", "Montenegro"],
+  locations: [
+    {
+      label: "Pljevlja",
+      lines: ["Ul. Mila Peruničića br. I/28", "84210", "Montenegro"],
+    },
+    {
+      label: "Podgorica",
+      lines: ["Ul. Trifuna Đukića br. 34", "81000", "Montenegro"],
+    },
+  ],
 };
 
 function ContactPage() {
@@ -54,7 +63,7 @@ function ContactPage() {
           <p className="page-hero__eyebrow">Contact</p>
           <h1 className="page-hero__title">Let&apos;s start a conversation</h1>
           <p className="page-hero__lede">
-            Questions about projects, partnerships, or how we work — send a note
+            Questions about projects, partnerships, or how we work. Send a note
             and we&apos;ll respond as soon as we can.
           </p>
         </div>
@@ -91,12 +100,22 @@ function ContactPage() {
               <div className="contact-card__icon" aria-hidden>
                 <HiOutlineMap />
               </div>
-              <h2 className="contact-card__label">Location</h2>
-              <address className="contact-card__address">
-                {SITE_CONTACT.addressLines.map((line) => (
-                  <span key={line}>{line}</span>
+              <h2 className="contact-card__label">Locations</h2>
+              <div className="contact-card__addresses">
+                {SITE_CONTACT.locations.map((location) => (
+                  <address
+                    key={location.label}
+                    className="contact-card__address-block"
+                  >
+                    <span className="contact-card__address-city">
+                      {location.label}
+                    </span>
+                    {location.lines.map((line) => (
+                      <span key={`${location.label}-${line}`}>{line}</span>
+                    ))}
+                  </address>
                 ))}
-              </address>
+              </div>
             </article>
           </div>
         </div>

@@ -55,7 +55,12 @@
     text-align: center;
   }
 
-  .contact-page__location-slot .contact-card__address {
+  .contact-page__location-slot .contact-card__address,
+  .contact-page__location-slot .contact-card__address-block {
+    align-items: center;
+  }
+
+  .contact-page__location-slot .contact-card__addresses {
     align-items: center;
   }
 
@@ -73,7 +78,8 @@
     font-size: clamp(0.82rem, 2.6vw, 0.95rem);
   }
 
-  .contact-page__location-slot .contact-card__address {
+  .contact-page__location-slot .contact-card__address,
+  .contact-page__location-slot .contact-card__address-block {
     font-size: clamp(0.82rem, 2.6vw, 0.95rem);
   }
 
@@ -192,6 +198,41 @@
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
+}
+
+.contact-card__addresses {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.contact-card__address-block {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.5;
+  font-style: normal;
+  color: var(--primaryText-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.contact-card__address-block + .contact-card__address-block {
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-default);
+}
+
+.contact-card__address-city {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondaryText-color);
+  margin-bottom: 0.15rem;
 }
 
 .contact-page__form-block {

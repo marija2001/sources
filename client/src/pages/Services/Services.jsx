@@ -23,9 +23,8 @@ const Services = () => {
           <p className="page-hero__eyebrow">Services</p>
           <h1 className="page-hero__title">What we offer</h1>
           <p className="page-hero__lede">
-            Firmware, hardware, and integration for teams shipping embedded
-            products—from architecture and bring-up through validation and
-            manufacturing support.
+          We develop the firmware and connected systems that bring sensors, devices, 
+          and field equipment together - from early prototypes to reliable products ready for deployment.
           </p>
         </div>
       </section>
