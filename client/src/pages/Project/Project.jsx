@@ -11,13 +11,51 @@ function resolveImageSrc(img) {
   return trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
 }
 
+function normalizeDescription(raw) {
+  if (raw == null) return "";
+  if (typeof raw === "string") return raw;
+  if (Array.isArray(raw)) return raw.filter(Boolean).join("\n\n");
+  return String(raw);
+}
+
 function splitParagraphs(text) {
-  if (!text || typeof text !== "string") return [];
-  return text
+  const normalized = normalizeDescription(text);
+  if (!normalized.trim()) return [];
+  return normalized
     .trim()
     .split(/\n\s*\n/)
     .map((p) => p.trim())
     .filter(Boolean);
+}
+
+function renderInline(text) {
+  const parts = text.split(/(\*\*[^*\n]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (/^\*\*[^*\n]+\*\*$/.test(part)) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
+function DescriptionBlock({ block }) {
+  if (block.startsWith("## ")) {
+    return (
+      <h2 className="project-page__subheading primaryText">
+        {renderInline(block.slice(3))}
+      </h2>
+    );
+  }
+  if (block.startsWith("# ")) {
+    return (
+      <h3 className="project-page__minor-heading primaryText">
+        {renderInline(block.slice(2))}
+      </h3>
+    );
+  }
+  return (
+    <p className="project-page__prose secondaryText">{renderInline(block)}</p>
+  );
 }
 
 const Project = () => {
@@ -73,7 +111,7 @@ const Project = () => {
     );
   }
 
-  const title = data.name?.trim() || "Project";
+  const title = (data.name ?? data.title ?? "").trim() || "Project";
 
   return (
     <main className="project-page">
@@ -103,9 +141,7 @@ const Project = () => {
           <div className="project-page__body">
             {paragraphs.length > 0 ? (
               paragraphs.map((block, i) => (
-                <p key={i} className="project-page__prose secondaryText">
-                  {block}
-                </p>
+                <DescriptionBlock key={i} block={block} />
               ))
             ) : (
               <p className="project-page__prose secondaryText">No description yet.</p>
