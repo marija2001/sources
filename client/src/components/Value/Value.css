@@ -23,20 +23,27 @@
   min-width: 0;
 }
 
+.v-about__media {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.v-about__row:first-child .v-about__media {
+  align-self: flex-start;
+}
+
+.v-about__row:nth-child(2) .v-about__media {
+  align-self: flex-end;
+  margin-left: auto;
+}
+
 .v-about__copy {
   gap: 0.65rem;
   align-self: center;
 }
 
-.v-about .orangeText {
-  font-size: 1.85rem;
-}
-
 .v-about__heading {
-  margin: 0;
-  font-size: clamp(1.65rem, 3.4vw, 2.2rem);
-  letter-spacing: -0.02em;
-  text-wrap: balance;
+  margin-bottom: 0;
 }
 
 .v-about__text {
@@ -46,67 +53,13 @@
   font-size: clamp(1.02rem, 1.75vw, 1.12rem);
 }
 
-.image-stack {
-  position: relative;
-  width: 100%;
-  max-width: 28rem;
-  align-self: flex-start;
-}
-
-.image-stack--end {
-  align-self: flex-end;
-  margin-left: auto;
-}
-
-.image-stack__shadow {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  --v-about-shadow-shift: clamp(0.65rem, 2vw, 1.1rem);
-  transform: translate(var(--v-about-shadow-shift), var(--v-about-shadow-shift));
-  border-radius: 0;
-  pointer-events: none;
-  background: var(--hero-teget-surface);
-}
-
-.image-stack--shadow-left .image-stack__shadow {
-  transform: translate(
-    calc(-1 * var(--v-about-shadow-shift)),
-    var(--v-about-shadow-shift)
-  );
-}
-
-.v-about .image-container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: 0;
-  border: 3px solid var(--image-frame-border);
-  box-sizing: border-box;
-}
-
-.v-about .image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-@media (max-width: 640px) {
-  .v-about .orangeText {
-    font-size: 1.48rem;
-  }
-}
-
 @media (max-width: 1024px) {
   .v-about__row {
     flex-direction: column;
   }
 
-  .image-stack,
-  .image-stack--end {
+  .v-about__media,
+  .v-about__row:nth-child(2) .v-about__media {
     align-self: stretch;
     margin-left: 0;
     max-width: none;
@@ -114,8 +67,7 @@
 }
 
 @media (max-width: 768px) {
-  .v-about .image-stack,
-  .v-about .image-stack--end {
+  .v-about__media {
     max-width: min(20rem, 88vw);
     align-self: center;
     margin-left: auto;

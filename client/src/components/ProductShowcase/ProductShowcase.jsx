@@ -52,7 +52,7 @@ const ProductShowcase = () => {
   return (
     <section className="product-scope" aria-labelledby="product-scope-label">
       <div className="product-scope__top paddings innerWidth">
-        <p id="product-scope-label" className="product-scope__eyebrow">
+        <p id="product-scope-label" className="eyebrow">
           What we build
         </p>
       </div>

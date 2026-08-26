@@ -48,6 +48,10 @@
   color: var(--primaryText-color);
 }
 
+.f-right > .primaryText {
+  font-size: 1.05rem;
+}
+
 .f-menu {
   display: flex;
   flex-wrap: wrap;

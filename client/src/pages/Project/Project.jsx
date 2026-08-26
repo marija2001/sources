@@ -40,7 +40,7 @@ const Project = () => {
     return (
       <main className="project-page">
         <div className="project-page__state project-page__state--text paddings innerWidth">
-          <p className="primaryText project-page__state-title">Project not found</p>
+          <p className="heading-2 project-page__state-title">Project not found</p>
           <p className="secondaryText">
             This case study may have been removed or the link is outdated.
           </p>
@@ -56,7 +56,7 @@ const Project = () => {
     return (
       <main className="project-page">
         <div className="project-page__state project-page__state--text paddings innerWidth">
-          <p className="primaryText project-page__state-title">Could not load project</p>
+          <p className="heading-2 project-page__state-title">Could not load project</p>
           <p className="secondaryText">Please try again later.</p>
           <Link className="project-page__back project-page__back--block" to="/projects">
             ← All projects
@@ -72,8 +72,8 @@ const Project = () => {
     <main className="project-page">
       <article className="project-page__article paddings innerWidth">
         <header className="project-page__header">
-          <p className="project-page__eyebrow">Project</p>
-          <h1 className="project-page__title primaryText">{title}</h1>
+          <p className="eyebrow">Project</p>
+          <h1 className="heading-1 project-page__title">{title}</h1>
         </header>
 
         <div

@@ -25,21 +25,8 @@
   margin-bottom: clamp(1.5rem, 3.5vw, 2.35rem);
 }
 
-.home-projects-newsroom__eyebrow {
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--secondaryText-color);
-  margin: 0 0 0.5rem;
-}
-
-.home-projects-newsroom__heading {
-  font-size: clamp(2rem, 3.75vw, 2.62rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--primaryText-color);
-  margin: 0 0 1rem;
+.home-projects-newsroom__intro .heading-2 {
+  margin-bottom: 1rem;
 }
 
 .home-projects-newsroom__link {

@@ -59,11 +59,10 @@
   margin: 0;
   width: 100%;
   max-width: 12.25rem;
-  border-radius: 0;
+  border-radius: var(--media-radius);
   overflow: hidden;
-  border: 1px solid var(--border-default);
   background: var(--surface-elevated);
-  box-shadow: none;
+  box-shadow: var(--media-shadow);
 }
 
 .team-page__photo {

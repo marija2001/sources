@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="f-wrapper">
       <div className="paddings innerWidth f-container">
         <div className="f-logo">
-          <img src="./logo3.png" alt="" width={120} />
+          <img src="/logo3.png" alt="Sources" width={120} />
         </div>
 
         <div className="flexColStart f-copy">

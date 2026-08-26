@@ -5,11 +5,11 @@ import HomeProjectCard from "../HomeProjectCard/HomeProjectCard";
 import "swiper/css";
 import "./ProjectCarousel.css";
 
-const MIN_TAPE_SLIDES = 9;
+const MIN_TAPE_SLIDES = 6;
 
 function buildTapeStrip(items) {
   if (!items?.length) return [];
-  if (items.length >= 3) return items;
+  if (items.length >= 5) return items;
   const tape = [];
   let i = 0;
   while (tape.length < MIN_TAPE_SLIDES) {
@@ -22,6 +22,7 @@ function buildTapeStrip(items) {
 function ProjectCarousel({ projects }) {
   const swiperRef = useRef(null);
   const tape = buildTapeStrip(projects);
+  const canLoop = tape.length >= 3;
 
   if (!projects?.length) {
     return (
@@ -32,7 +33,7 @@ function ProjectCarousel({ projects }) {
   }
 
   return (
-    <div className="project-carousel">
+    <div className="project-carousel project-carousel--focus">
       <button
         type="button"
         className="project-carousel__arrow project-carousel__arrow--side project-carousel__arrow--prev"
@@ -45,13 +46,15 @@ function ProjectCarousel({ projects }) {
       <div className="project-carousel__viewport">
         <Swiper
           className="project-carousel__swiper"
-          rewind
-          slidesPerView={3}
-          spaceBetween={22}
+          centeredSlides
+          slidesPerView="auto"
+          spaceBetween={16}
+          loop={canLoop}
+          speed={480}
+          grabCursor
           breakpoints={{
-            0: { slidesPerView: 1, spaceBetween: 18 },
-            560: { slidesPerView: 2, spaceBetween: 20 },
-            900: { slidesPerView: 3, spaceBetween: 22 },
+            640: { spaceBetween: 20 },
+            900: { spaceBetween: 28 },
           }}
           onSwiper={(instance) => {
             swiperRef.current = instance;

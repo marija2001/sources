@@ -20,14 +20,6 @@
   padding-right: clamp(1.25rem, 4vw, 2.5rem);
 }
 
-.product-scope__eyebrow {
-  margin: 0;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--secondaryText-color);
-}
 
 .product-scope__track {
   position: relative;

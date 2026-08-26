@@ -17,10 +17,10 @@ function Team() {
     <main className="team-page">
       <section className="page-hero">
         <div className="page-hero__inner paddings innerWidth">
-          <p className="page-hero__eyebrow">Team</p>
+          <p className="eyebrow eyebrow--on-dark">Team</p>
           <h1 className="page-hero__title">Meet everyone</h1>
           <p className="page-hero__lede">
-            Engineers behind Sources — bios load from the database; edit content in Mongo when it goes live.
+            Engineers behind Sources
           </p>
         </div>
       </section>

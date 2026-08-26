@@ -165,11 +165,11 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-spacing);
   text-transform: uppercase;
-  color: var(--secondaryText-color);
+  color: var(--eyebrow-color);
 }
 
 .contact-card__value {
@@ -227,11 +227,11 @@
 }
 
 .contact-card__address-city {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-spacing);
   text-transform: uppercase;
-  color: var(--secondaryText-color);
+  color: var(--eyebrow-color);
   margin-bottom: 0.15rem;
 }
 
@@ -251,9 +251,10 @@
 
 .contact-page__form-heading {
   margin: 0 0 0.5rem;
-  font-size: clamp(1.65rem, 2.8vw, 2.1rem);
-  font-weight: 600;
-  letter-spacing: -0.025em;
+  font-size: var(--heading-2-size);
+  font-weight: var(--heading-2-weight);
+  letter-spacing: var(--heading-2-tracking);
+  line-height: var(--heading-2-leading);
   color: var(--primaryText-color);
 }
 

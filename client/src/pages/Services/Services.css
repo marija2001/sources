@@ -47,22 +47,8 @@
   margin-bottom: clamp(1.35rem, 3vw, 2rem);
 }
 
-.services-page__eyebrow {
-  margin: 0 0 0.45rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(19, 17, 16, 0.5);
-}
-
-.services-page__h2 {
+.services-page__section-head .heading-2 {
   margin: 0;
-  font-size: clamp(1.45rem, 2.8vw, 1.85rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: #1f3e72;
 }
 
 .services-page__loading {
@@ -85,11 +71,11 @@
 
 .services-page__cap-title {
   margin: 0 0 0.85rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-spacing);
   text-transform: uppercase;
-  color: rgba(19, 17, 16, 0.55);
+  color: var(--eyebrow-color);
 }
 
 .services-page__capabilities .services-page__cap-title:not(:first-child) {
