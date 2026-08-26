@@ -8,7 +8,8 @@
     "start": "prisma generate && nodemon index.js",
     "postinstall": "prisma generate",
     "db:push": "prisma db push",
-    "db:seed": "prisma db seed"
+    "db:seed": "prisma db seed",
+    "db:seed-haccp": "node scripts/seed-haccp-project.js"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

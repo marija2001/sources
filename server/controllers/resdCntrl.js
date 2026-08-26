@@ -3,7 +3,7 @@ import { prisma } from "../config/prismaConfig.js";
 
 // ✔ Kreiranje novog projekta
 export const createProject = asyncHandler(async (req, res) => {
-  const { name, description, image, company, website } = req.body.data;
+  const { name, description, image, company, website, template } = req.body.data;
 
   try {
     const project = await prisma.project.create({
@@ -13,6 +13,7 @@ export const createProject = asyncHandler(async (req, res) => {
         image,
         ...(company?.trim() ? { company: company.trim() } : {}),
         ...(website?.trim() ? { website: website.trim() } : {}),
+        ...(template?.trim() ? { template: template.trim() } : {}),
       },
     });
 

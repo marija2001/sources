@@ -8,7 +8,7 @@ const SLIDES = [
     tag: "PropTech · Access",
     pitch: "Manage your rental's door codes and AC from your phone.",
     detail:
-      "Smart lock and climate control for rental properties. Start with proven Nuki/Tuya and Shelly hardware; scale to a custom ESP32 hub with cellular when you're ready.",
+      "Smart lock and climate control for rental properties. Start with proven Nuki/Tuya and Shelly hardware, then scale to a custom ESP32 hub with cellular when you're ready.",
     priceHint: "Hardware at cost + 20% · from 10 EUR/mo",
     Icon: FaKey,
     accent: "#7eb8ff",
@@ -19,7 +19,7 @@ const SLIDES = [
     tag: "Energy · Analytics",
     pitch: "See how much each circuit in your home costs you.",
     detail:
-      "Per-circuit energy monitoring with a clear cost breakdown. Phase 0 on Shelly PM Minis; Phase 2 moves to a custom multi-channel monitor sharing one SIM hub.",
+      "Per-circuit energy monitoring with a clear cost breakdown. Phase 0 on Shelly PM Minis. Phase 2 moves to a custom multi-channel monitor sharing one SIM hub.",
     priceHint: "Hardware at cost + 20% · from 5 EUR/mo",
     Icon: FaBolt,
     accent: "#5ee0b5",
@@ -30,7 +30,7 @@ const SLIDES = [
     tag: "Marine · Telemetry",
     pitch: "Know your boat is safe from your phone.",
     detail:
-      "Bilge level, battery voltage, GPS drift, hatch alerts — built for marinas and long absences. Shelly + GPS for MVP; one rugged solar box with SIM for production.",
+      "Bilge level, battery voltage, GPS drift, hatch alerts for marinas and long absences. Shelly + GPS for MVP, then one rugged solar box with SIM for production.",
     priceHint: "From 150 EUR device · 8 EUR/mo",
     Icon: FaShip,
     accent: "#6ec8ff",

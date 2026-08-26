@@ -33,7 +33,7 @@ const Value = () => {
           <div className="flexColStart v-about__copy">
             <h2 className="heading-2 v-about__heading">Our mission</h2>
             <p className="secondaryText v-about__text">
-            We design and build embedded devices, firmware, edge software, and connected monitoring systems—from the first prototype to field deployment.
+            We design and build embedded devices, firmware, edge software, and connected monitoring systems, from the first prototype to field deployment.
             <br/>
             We work closely with our clients throughout the development process and coordinate specialized partners when additional hardware, mechanical, or cloud expertise is required.
             </p>
@@ -57,7 +57,7 @@ const Value = () => {
               </h2>
               <p className="v-more__text">
               We work closely with your team throughout development, testing, documentation, 
-              and manufacturing support—so the product is easy to maintain and improve.
+              and manufacturing support, so the product is easy to maintain and improve.
               </p>
               <Link className="v-more__cta" to="/services">
                 View services
@@ -70,7 +70,7 @@ const Value = () => {
               <div className="media-frame">
                 <img
                   src={teamImg}
-                  alt="Team — replace with a group photo when ready"
+                  alt="Team group photo"
                 />
               </div>
             </div>

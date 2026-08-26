@@ -46,7 +46,7 @@ function Team() {
                   <img
                     className="team-page__photo"
                     src={member.photo}
-                    alt={`${member.name} — portrait`}
+                    alt={`${member.name} portrait`}
                     width={560}
                     height={700}
                     loading="lazy"
