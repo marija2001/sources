@@ -9,7 +9,12 @@
     "postinstall": "prisma generate",
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
-    "db:seed-haccp": "node scripts/seed-haccp-project.js"
+    "db:seed-haccp": "node scripts/seed-haccp-project.js",
+    "db:seed-drone": "node scripts/seed-drone-project.js",
+    "db:seed-smart-home": "node scripts/seed-smart-home-project.js",
+    "db:seed-auto": "node scripts/seed-auto-project.js",
+    "db:seed-river": "node scripts/seed-river-project.js",
+    "db:seed-railway": "node scripts/seed-railway-project.js"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

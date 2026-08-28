@@ -14,7 +14,7 @@ async function main() {
     data: {
       name: HACCP_NAME,
       template: "haccp",
-      image: "/haccp.png",
+      image: "/naslovnahaccp.png",
       description: HACCP_DESCRIPTION,
     },
   });
@@ -24,12 +24,12 @@ async function main() {
     create: {
       name: HACCP_NAME,
       template: "haccp",
-      image: "/haccp.png",
+      image: "/naslovnahaccp.png",
       description: HACCP_DESCRIPTION,
     },
     update: {
       template: "haccp",
-      image: "/haccp.png",
+      image: "/naslovnahaccp.png",
       description: HACCP_DESCRIPTION,
     },
   });

@@ -1,34 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  HiOutlineBell,
-  HiOutlineChartBar,
-  HiOutlineClipboardList,
-  HiOutlineLightningBolt,
-  HiOutlinePhone,
-  HiOutlineSun,
-} from "react-icons/hi";
-import "../../../styles/pageHero.css";
 import "./HaccpProjectView.css";
 
 const FEATURES = [
   {
-    Icon: HiOutlineLightningBolt,
     title: "Automated monitoring",
     text: "Temperature probes in fridges, freezers, and display cases, with live data and no manual readings.",
   },
   {
-    Icon: HiOutlineBell,
     title: "Alerts & corrective actions",
     text: "Notifications when temperatures drift, with logged response time, actions taken, and responsible staff.",
   },
   {
-    Icon: HiOutlineChartBar,
     title: "Inspection-ready reports",
     text: "Daily and monthly history, measurement logs, and documentation ready for HACCP audits.",
   },
   {
-    Icon: HiOutlineClipboardList,
     title: "Digital HACCP records",
     text: "More than equipment monitoring: a practical tool for day-to-day procedures and less admin work.",
   },
@@ -42,26 +29,106 @@ const AUDIENCE = [
   "Food service",
 ];
 
+const AUDIENCE_TICKER = [...AUDIENCE, ...AUDIENCE, ...AUDIENCE];
+
 const STEPS = [
   {
     n: "01",
     title: "Probes in place",
-    text: "Temperature sensors inside cold storage units. The gateway stays outside the chilled zone.",
+    body: (
+      <>
+        Temperature sensors inside{" "}
+        <span className="haccp-project__step-em">cold storage units</span>. The
+        gateway stays{" "}
+        <span className="haccp-project__step-em">outside the chilled zone</span>.
+      </>
+    ),
     image: "/2.png",
   },
   {
     n: "02",
     title: "Data to the platform",
-    text: "Readings flow to a digital dashboard with live status, history, and automatic alarms.",
+    body: (
+      <>
+        Readings flow to a{" "}
+        <span className="haccp-project__step-em">digital dashboard</span> with
+        live status, history, and{" "}
+        <span className="haccp-project__step-em">automatic alarms</span>.
+      </>
+    ),
     image: "/3.png",
   },
   {
     n: "03",
     title: "Control & reports",
-    text: "Review from phone or desktop, log corrective measures, and export reports for daily HACCP work.",
+    body: (
+      <>
+        Review from{" "}
+        <span className="haccp-project__step-em">phone or desktop</span>, log{" "}
+        <span className="haccp-project__step-em">corrective measures</span>, and
+        export reports for daily HACCP work.
+      </>
+    ),
     image: "/4.png",
   },
 ];
+
+function HaccpStep({ step, index }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.22, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const flipped = index % 2 === 1;
+
+  return (
+    <li
+      ref={ref}
+      className={[
+        "haccp-project__step",
+        visible && "haccp-project__step--visible",
+        flipped && "haccp-project__step--flip",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      style={{ "--step-i": index }}
+    >
+      <div className="haccp-project__step-copy">
+        <span className="haccp-project__step-n" aria-hidden>
+          {step.n}
+        </span>
+        <div className="haccp-project__step-body">
+          <h3 className="haccp-project__step-title">{step.title}</h3>
+          <p className="haccp-project__step-text">{step.body}</p>
+        </div>
+      </div>
+      <figure className="media-frame haccp-project__step-media">
+        <img src={step.image} alt="" loading="lazy" decoding="async" />
+      </figure>
+    </li>
+  );
+}
 
 function HaccpProjectView({ project }) {
   const title = (project?.name ?? "").trim() || "Digital HACCP Assistant";
@@ -97,27 +164,15 @@ function HaccpProjectView({ project }) {
 
   return (
     <main className="haccp-project">
-      <section className="haccp-project__hero page-hero">
-        <div className="haccp-project__hero-inner paddings innerWidth">
-          <p className="eyebrow eyebrow--on-dark">IoT · HACCP · Hospitality</p>
-          <h1 className="page-hero__title">{title}</h1>
-          <p className="page-hero__lede haccp-project__hero-lede">
-            Automated HACCP records for refrigeration: temperature tracking,
-            alerts, and reports for food-service businesses.
-          </p>
-          <div className="haccp-project__hero-actions">
-            <Link className="button haccp-project__cta-primary" to="/contact">
-              Request a demo
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <section className="haccp-project__intro paddings innerWidth">
         <div className="haccp-project__intro-grid">
           <div className="haccp-project__intro-copy">
-            <p className="eyebrow">Overview</p>
-            <h2 className="heading-2">Digital HACCP assistant</h2>
+            <p className="eyebrow">IoT · HACCP · Hospitality</p>
+            <h1 className="heading-1 haccp-project__title">{title}</h1>
+            <p className="haccp-project__lede">
+              Automated HACCP records for refrigeration: temperature tracking,
+              alerts, and reports for food-service businesses.
+            </p>
             <p className="haccp-project__prose">
               An IoT system built to automate temperature monitoring and simplify
               HACCP record-keeping for restaurants, hotels, beach bars, pastry
@@ -150,26 +205,25 @@ function HaccpProjectView({ project }) {
       </section>
 
       <section
-        className="haccp-project__features paddings innerWidth"
+        className="haccp-project__features"
         aria-labelledby="haccp-features-heading"
       >
-        <header className="haccp-project__section-head">
-          <p className="eyebrow">Capabilities</p>
-          <h2 id="haccp-features-heading" className="heading-2">
-            What the system delivers
-          </h2>
-        </header>
-        <ul className="haccp-project__feature-grid">
-          {FEATURES.map(({ Icon, title: featTitle, text }) => (
-            <li key={featTitle} className="haccp-project__feature-card">
-              <span className="haccp-project__feature-icon" aria-hidden>
-                <Icon />
-              </span>
-              <h3 className="haccp-project__feature-title">{featTitle}</h3>
-              <p className="haccp-project__feature-text">{text}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="haccp-project__features-inner paddings innerWidth">
+          <header className="haccp-project__section-head">
+            <p className="eyebrow">Capabilities</p>
+            <h2 id="haccp-features-heading" className="heading-2">
+              What the system delivers
+            </h2>
+          </header>
+          <ul className="haccp-project__feature-grid">
+            {FEATURES.map(({ title: featTitle, text }) => (
+              <li key={featTitle} className="haccp-project__feature-card">
+                <h3 className="haccp-project__feature-title">{featTitle}</h3>
+                <p className="haccp-project__feature-text">{text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section
@@ -183,58 +237,43 @@ function HaccpProjectView({ project }) {
           </h2>
         </header>
         <ol className="haccp-project__step-list">
-          {STEPS.map((step) => (
-            <li key={step.n} className="haccp-project__step">
-              <div className="haccp-project__step-copy">
-                <span className="haccp-project__step-n">{step.n}</span>
-                <h3 className="haccp-project__step-title">{step.title}</h3>
-                <p className="haccp-project__step-text">{step.text}</p>
-              </div>
-              <figure className="media-frame haccp-project__step-media">
-                <img src={step.image} alt="" loading="lazy" decoding="async" />
-              </figure>
-            </li>
+          {STEPS.map((step, index) => (
+            <HaccpStep key={step.n} step={step} index={index} />
           ))}
         </ol>
       </section>
 
-      <section className="haccp-project__audience paddings innerWidth">
-        <div className="haccp-project__audience-inner">
-          <div className="haccp-project__audience-copy">
-            <p className="eyebrow">Who it&apos;s for</p>
-            <h2 className="heading-2">Built for small and mid-size operators</h2>
-            <p className="haccp-project__prose">
-              The goal is to give hospitality and tourism businesses in Montenegro
-              simpler, more reliable, and affordable control over food storage
-              conditions, with less manual paperwork, better readiness for inspections,
-              and faster response when equipment drifts out of range.
-            </p>
-            <ul className="haccp-project__tags">
-              {AUDIENCE.map((tag) => (
-                <li key={tag}>{tag}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="haccp-project__audience-icons" aria-hidden>
-            <span className="haccp-project__audience-icon">
-              <HiOutlinePhone />
-            </span>
-            <span className="haccp-project__audience-icon">
-              <HiOutlineSun />
-            </span>
+      <section className="haccp-project__audience" aria-label="Industries we serve">
+        <div className="haccp-project__audience-fade" aria-hidden>
+          <div className="haccp-project__audience-track">
+            {[0, 1].map((set) => (
+              <div key={set} className="haccp-project__audience-group">
+                {AUDIENCE_TICKER.map((tag, index) => (
+                  <span key={`${set}-${index}-${tag}`} className="haccp-project__audience-item">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="haccp-project__closing paddings innerWidth">
-        <div className="haccp-project__closing-card">
-          <h2 className="heading-2">Ready for a more reliable HACCP process?</h2>
-          <p className="haccp-project__prose haccp-project__prose--on-dark">
-            Get in touch for a demo, a pilot at your site, or a tailored integration
-            with your refrigeration setup.
+      <section className="haccp-project__closing" aria-labelledby="haccp-closing-heading">
+        <div className="haccp-project__closing-inner paddings innerWidth">
+          <h2 id="haccp-closing-heading" className="heading-2 haccp-project__closing-title">
+            Interested in the HACCP Assistant?
+          </h2>
+          <p className="haccp-project__closing-lede">
+            Contact us for more information, a demo, or a pilot at your site.
           </p>
-          <Link className="button haccp-project__cta-primary" to="/contact">
-            Contact us
+          <Link className="haccp-project__closing-link" to="/contact">
+            Get in touch
+            <span className="haccp-project__closing-arrows" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
           </Link>
         </div>
       </section>
