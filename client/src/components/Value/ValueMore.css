@@ -84,10 +84,20 @@
 }
 
 .v-more__team-media {
+  align-self: flex-start;
+}
+
+.v-more__team-media--sticker {
+  --v-about-team-sticker-width: min(25rem, 100%);
+  flex: 0 1 var(--v-about-team-sticker-width);
+  max-width: var(--v-about-team-sticker-width);
+}
+
+.v-more__team-sticker {
+  display: block;
   width: 100%;
-  max-width: 28rem;
-  align-self: center;
-  margin-right: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 @media (max-width: 1024px) {
@@ -96,9 +106,6 @@
   }
 
   .v-more__team-media {
-    margin-right: 0;
-    max-width: none;
-    align-self: stretch;
     order: -1;
   }
 }
@@ -107,5 +114,11 @@
   .v-more__collab {
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .v-more__team-media--sticker {
+    --v-about-team-sticker-width: min(20rem, 92vw);
   }
 }

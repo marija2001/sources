@@ -43,7 +43,6 @@ const HomeServices = () => {
     >
       <div className="home-services__inner paddings innerWidth">
         <header className="home-services__intro">
-          <p className="eyebrow">Services</p>
           <h2 id="home-services-heading" className="heading-2">
             How we help teams ship
           </h2>

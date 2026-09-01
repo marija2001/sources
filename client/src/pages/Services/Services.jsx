@@ -20,7 +20,6 @@ const Services = () => {
     <main className="services-page">
       <section className="page-hero">
         <div className="page-hero__inner paddings innerWidth">
-          <p className="eyebrow eyebrow--on-dark">Services</p>
           <h1 className="page-hero__title">What we offer</h1>
           <p className="page-hero__lede">
           We develop the firmware and connected systems that bring sensors, devices, 
@@ -34,7 +33,6 @@ const Services = () => {
         aria-labelledby="services-featured-heading"
       >
         <header className="services-page__section-head">
-          <p className="eyebrow">Highlights</p>
           <h2 id="services-featured-heading" className="heading-2">
             Core offerings
           </h2>

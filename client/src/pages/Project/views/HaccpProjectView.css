@@ -553,6 +553,13 @@
   }
 }
 
+@media (max-width: 639px) {
+  .haccp-project__step-media {
+    width: min(100%, 17.5rem);
+    margin-inline: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .haccp-project__closing-arrows span {
     animation: none;

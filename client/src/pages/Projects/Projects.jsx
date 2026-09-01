@@ -11,7 +11,6 @@ function ProjectsHero() {
   return (
     <section className="page-hero">
       <div className="page-hero__inner paddings innerWidth">
-        <p className="eyebrow eyebrow--on-dark">Work</p>
         <h1 className="page-hero__title">Projects</h1>
         <p className="page-hero__lede">
         Explore our projects and products

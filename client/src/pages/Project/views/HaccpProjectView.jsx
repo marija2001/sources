@@ -167,7 +167,6 @@ function HaccpProjectView({ project }) {
       <section className="haccp-project__intro paddings innerWidth">
         <div className="haccp-project__intro-grid">
           <div className="haccp-project__intro-copy">
-            <p className="eyebrow">IoT · HACCP · Hospitality</p>
             <h1 className="heading-1 haccp-project__title">{title}</h1>
             <p className="haccp-project__lede">
               Automated HACCP records for refrigeration: temperature tracking,
@@ -210,7 +209,6 @@ function HaccpProjectView({ project }) {
       >
         <div className="haccp-project__features-inner paddings innerWidth">
           <header className="haccp-project__section-head">
-            <p className="eyebrow">Capabilities</p>
             <h2 id="haccp-features-heading" className="heading-2">
               What the system delivers
             </h2>
@@ -231,7 +229,6 @@ function HaccpProjectView({ project }) {
         aria-labelledby="haccp-steps-heading"
       >
         <header className="haccp-project__section-head">
-          <p className="eyebrow">How it works</p>
           <h2 id="haccp-steps-heading" className="heading-2">
             From sensor to report
           </h2>

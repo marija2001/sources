@@ -139,6 +139,48 @@
   transform: none;
 }
 
+@media (max-width: 639px) {
+  .project-carousel--focus .project-carousel__slide {
+    width: min(68vw, 14.75rem);
+    transform: scale(0.76);
+    opacity: 0.42;
+  }
+
+  .project-carousel--focus .project-carousel__slide.swiper-slide-prev,
+  .project-carousel--focus .project-carousel__slide.swiper-slide-next {
+    transform: scale(0.84);
+    opacity: 0.62;
+  }
+
+  .project-carousel--focus .project-carousel__slide.swiper-slide-active {
+    transform: scale(0.92);
+  }
+
+  .project-carousel--focus .project-carousel__slide .home-project-card--newsroom .home-project-card__body {
+    padding: 1.2rem 1.1rem 1.45rem;
+    min-height: 0;
+    gap: 0.45rem;
+  }
+
+  .project-carousel--focus .project-carousel__slide .home-project-card--newsroom .home-project-card__title {
+    font-size: 1.02rem;
+  }
+
+  .project-carousel--focus .project-carousel__slide .home-project-card--newsroom .home-project-card__excerpt {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .project-carousel--focus .project-carousel__slide .home-project-card--newsroom .home-project-card__cta {
+    font-size: 0.82rem;
+    margin-top: 0.15rem;
+  }
+
+  .project-carousel--focus .project-carousel__slide .home-project-card--newsroom .home-project-card__placeholder {
+    min-height: 9.5rem;
+  }
+}
+
 .project-carousel__empty {
   margin: 0;
   padding: 2rem 1rem;

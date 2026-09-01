@@ -60,7 +60,6 @@ function ContactPage() {
     <main className="contact-page">
       <section className="page-hero">
         <div className="page-hero__inner paddings innerWidth">
-          <p className="eyebrow eyebrow--on-dark">Contact</p>
           <h1 className="page-hero__title">Let&apos;s start a conversation</h1>
           <p className="page-hero__lede">
             Questions about projects, partnerships, or how we work. Send a note

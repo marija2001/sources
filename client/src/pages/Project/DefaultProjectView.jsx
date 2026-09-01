@@ -19,7 +19,6 @@ function DefaultProjectView({ data }) {
     <>
       <article className="project-page__article paddings innerWidth">
         <header className="project-page__header">
-          <p className="eyebrow">Project</p>
           <h1 className="heading-1 project-page__title">{title}</h1>
         </header>
 

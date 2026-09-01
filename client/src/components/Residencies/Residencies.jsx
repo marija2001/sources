@@ -50,7 +50,6 @@ const Residencies = () => {
     >
       <div className="home-projects-band-body paddings innerWidth">
         <div className="home-projects-newsroom__intro">
-          <p className="eyebrow">Projects</p>
           <h2 className="heading-2">Recent work</h2>
           <Link className="home-projects-newsroom__link" to="/projects">
             View all projects

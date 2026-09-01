@@ -22,7 +22,7 @@ const ABOUT_COLLAGE = [
 ];
 
 const missionImg = "/about_us/kanc.jpg";
-const teamImg = "/programmingg.jpg";
+const teamImg = "/team.png";
 
 const Value = () => {
   return (
@@ -40,7 +40,6 @@ const Value = () => {
             ))}
           </div>
           <div className="v-about__intro">
-            <p className="eyebrow">About us</p>
             <h2 className="heading-2 v-about__heading">Our vision</h2>
             <p className="secondaryText v-about__text">
               We want to help companies turn ideas into reliable connected
@@ -63,7 +62,7 @@ const Value = () => {
               mechanical, or cloud expertise is required.
             </p>
           </div>
-          <div className="v-about__media v-about__media--mission">
+          <div className="v-about__media">
             <div className="media-frame">
               <img
                 src={missionImg}
@@ -78,7 +77,6 @@ const Value = () => {
         <div className="v-more">
           <div className="v-more__collab">
             <div className="v-more__collab-inner v-more__collab-inner--rail">
-              <p className="eyebrow">Collaboration</p>
               <h2 className="heading-2 v-more__title">
               From prototype to production
               </h2>
@@ -93,16 +91,16 @@ const Value = () => {
           </div>
 
           <div className="v-more__team">
-            <div className="v-more__team-media">
-              <div className="media-frame">
-                <img
-                  src={teamImg}
-                  alt="Team group photo"
-                />
-              </div>
+            <div className="v-more__team-media v-about__media v-more__team-media--sticker">
+              <img
+                className="v-more__team-sticker"
+                src={teamImg}
+                alt="Team group photo"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div className="flexColStart v-more__team-copy">
-              <p className="eyebrow">Team</p>
               <h2 className="heading-2 v-more__title">Our team</h2>
               <p className="v-more__text">
               Meet the engineers behind our products and solutions.
