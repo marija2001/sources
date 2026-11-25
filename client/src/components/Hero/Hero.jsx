@@ -69,10 +69,12 @@ const Hero = ({ pencilAnimEpoch = 1, onLearnMoreClick }) => {
               </div>
               <div className="flexColStart stat">
                 <span className="stat-value">
-                  <CountUp end={3} duration={2} />{" "}
+                  <CountUp start={25} end={40} duration={3} />{" "}
                   <span className="stat-plus">+</span>
                 </span>
-                <span className="secondaryText stat-label">Engineers</span>
+                <span className="secondaryText stat-label">
+                  Devices deployed
+                </span>
               </div>
             </div>
             <a
