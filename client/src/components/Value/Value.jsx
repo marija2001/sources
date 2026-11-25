@@ -22,7 +22,7 @@ const ABOUT_COLLAGE = [
 ];
 
 const missionImg = "/about_us/kanc.jpg";
-const teamImg = "/team.png";
+const teamImg = "/about_us/animaja.jpeg";
 
 const Value = () => {
   return (
